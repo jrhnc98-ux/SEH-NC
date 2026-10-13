@@ -1,0 +1,595 @@
+/* =========================================================
+   MAQUETTES SEH-NC : composants de démonstration
+   S'appuie sur css/atelier.css (variables :root, charte parchemin).
+   Objectif : valider le design des pages internes, alignées à gauche.
+   ========================================================= */
+
+/* Pages internes : titres alignés à gauche, pas de centrage */
+.contenu-atelier .titre-atelier {
+  text-align: left;
+  border-bottom: 3px double var(--or);
+  padding-bottom: 10px;
+  margin: 4px 0 20px;
+}
+
+.mq-intro {
+  color: var(--sous);
+  font-size: 16px;
+  max-width: 70ch;
+  margin-bottom: 18px;
+}
+
+/* Bandeau qui signale qu'il s'agit d'une maquette */
+.mq-note {
+  background: var(--code);
+  border: 1px dashed var(--or);
+  border-radius: 6px;
+  padding: 10px 14px;
+  font-size: 13px;
+  color: var(--sous);
+  margin-bottom: 22px;
+}
+
+.mq-note b { color: var(--titre); }
+
+/* Étiquette de section */
+.mq-titre {
+  font-family: "Courier New", monospace;
+  font-size: 12px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--sous);
+  margin: 26px 0 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.mq-titre::before {
+  content: "";
+  width: 30px;
+  height: 2px;
+  background: var(--or);
+}
+
+/* Rappel des classes mobilisées */
+.classes-liees.mq { margin-top: 30px; }
+
+/* ---------- Compteurs / statistiques ---------- */
+.mq-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 14px;
+  margin: 18px 0;
+}
+
+.mq-stat {
+  background: var(--carte);
+  border: 1px solid var(--tan);
+  border-radius: 6px;
+  padding: 16px 18px;
+}
+
+.mq-stat b {
+  display: block;
+  font-size: 30px;
+  color: var(--or);
+  line-height: 1;
+}
+
+.mq-stat span {
+  display: block;
+  font-family: "Courier New", monospace;
+  font-size: 11.5px;
+  color: var(--sous);
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  margin-top: 6px;
+}
+
+/* ---------- Barre d'outils / filtres ---------- */
+.mq-barre {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  margin: 16px 0;
+}
+
+.mq-filtre {
+  border: 1px solid var(--tan);
+  background: var(--code);
+  border-radius: 20px;
+  padding: 6px 14px;
+  font-size: 13px;
+  font-family: Georgia, serif;
+  color: var(--titre);
+  cursor: pointer;
+  transition: .15s;
+}
+
+.mq-filtre:hover { border-color: var(--or); }
+.mq-filtre.on { background: var(--titre); color: var(--creme); border-color: var(--titre); }
+
+.mq-recherche {
+  flex: 1;
+  min-width: 180px;
+  border: 1px solid var(--tan);
+  border-radius: 6px;
+  background: var(--code);
+  padding: 8px 12px;
+  font-family: Georgia, serif;
+  font-size: 14px;
+  color: var(--corps);
+}
+
+/* ---------- Badges d'état ---------- */
+.etat {
+  display: inline-block;
+  font-family: "Courier New", monospace;
+  font-size: 11px;
+  letter-spacing: .04em;
+  padding: 3px 10px;
+  border-radius: 12px;
+}
+
+.etat.attente { background: var(--idle); color: var(--titre); }
+.etat.cours   { background: var(--run);  color: var(--creme); }
+.etat.ok      { background: var(--or);   color: var(--creme); }
+.etat.warn    { background: var(--warn); color: var(--creme); }
+
+/* ---------- Tableaux ---------- */
+.mq-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--carte);
+  border: 1px solid var(--or);
+  border-radius: 6px;
+  overflow: hidden;
+  margin: 16px 0;
+  font-size: 14px;
+}
+
+.mq-table thead th {
+  background: var(--titre);
+  color: var(--creme);
+  text-align: left;
+  padding: 11px 14px;
+  font-family: "Courier New", monospace;
+  font-size: 11.5px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  font-weight: normal;
+}
+
+.mq-table td {
+  padding: 11px 14px;
+  border-bottom: 1px solid var(--tan);
+  color: var(--corps);
+}
+
+.mq-table tbody tr:last-child td { border-bottom: none; }
+.mq-table tbody tr:nth-child(even) { background: rgba(200, 191, 168, .14); }
+.mq-table .ref { font-family: "Courier New", monospace; font-size: 12.5px; color: var(--sous); }
+.mq-table .nom { font-weight: bold; color: var(--titre); }
+
+/* Barre de progression (traitement par lots) */
+.barre-prog {
+  height: 8px;
+  background: var(--idle);
+  border-radius: 4px;
+  overflow: hidden;
+  min-width: 90px;
+}
+
+.barre-prog i {
+  display: block;
+  height: 100%;
+  background: var(--or);
+}
+
+/* ---------- Zone de dépôt de fichiers ---------- */
+.depot {
+  border: 2px dashed var(--or);
+  border-radius: 8px;
+  background: var(--code);
+  padding: 34px 20px;
+  text-align: center;
+  color: var(--sous);
+  margin: 16px 0;
+}
+
+.depot b { display: block; color: var(--titre); font-size: 17px; margin-bottom: 6px; }
+.depot small { font-family: "Courier New", monospace; font-size: 12px; }
+
+/* =========================================================
+   CONVERTISSEUR : vue comparée PDF / EPUB
+   ========================================================= */
+.split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin: 16px 0;
+}
+
+.volet {
+  border: 1px solid var(--or);
+  border-radius: 6px;
+  background: var(--carte);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.volet-tete {
+  background: var(--titre);
+  color: var(--creme);
+  padding: 8px 14px;
+  font-family: "Courier New", monospace;
+  font-size: 11.5px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.page-doc {
+  position: relative;
+  background: var(--code);
+  min-height: 430px;
+  padding: 24px 26px;
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: var(--corps);
+  cursor: crosshair;
+}
+
+.page-doc.epub { background: #FBF7EF; cursor: default; }
+.page-doc h4 { color: var(--titre); font-size: 16px; margin-bottom: 8px; }
+.page-doc p { margin-bottom: 10px; }
+.page-doc .num-page {
+  position: absolute;
+  bottom: 8px;
+  right: 12px;
+  font-family: "Courier New", monospace;
+  font-size: 11px;
+  color: var(--sous);
+}
+
+/* Cadre de sélection tracé à la souris */
+.selection {
+  position: absolute;
+  border: 2px dashed var(--warn);
+  background: rgba(155, 71, 34, .12);
+  pointer-events: none;
+}
+
+.pagineur {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+}
+
+.pagineur button {
+  border: 1px solid var(--or);
+  background: var(--code);
+  color: var(--titre);
+  border-radius: 4px;
+  padding: 3px 9px;
+  cursor: pointer;
+  font-family: Georgia, serif;
+}
+
+/* Panneau de correction */
+.panneau-correction {
+  border: 1px solid var(--or);
+  border-radius: 6px;
+  background: var(--carte);
+  padding: 18px 22px;
+  margin: 18px 0;
+}
+
+.panneau-correction h3 { color: var(--titre); font-size: 18px; margin-bottom: 4px; }
+.panneau-correction .zone-ref {
+  font-family: "Courier New", monospace;
+  font-size: 12px;
+  color: var(--sous);
+  margin-bottom: 12px;
+}
+
+.mots-cles { display: flex; flex-wrap: wrap; gap: 8px; margin: 8px 0 14px; }
+
+.chip {
+  border: 1px solid var(--tan);
+  background: var(--code);
+  border-radius: 16px;
+  padding: 5px 13px;
+  font-size: 13px;
+  font-family: Georgia, serif;
+  color: var(--titre);
+  cursor: pointer;
+  transition: .15s;
+  user-select: none;
+}
+
+.chip:hover { border-color: var(--or); }
+.chip.on { background: var(--titre); color: var(--creme); border-color: var(--titre); }
+
+.panneau-correction textarea {
+  width: 100%;
+  min-height: 70px;
+  border: 1px solid var(--tan);
+  border-radius: 6px;
+  background: var(--code);
+  padding: 10px 12px;
+  font-family: Georgia, serif;
+  font-size: 14px;
+  color: var(--corps);
+  resize: vertical;
+}
+
+.ia-box {
+  border-left: 4px solid var(--run);
+  background: var(--code);
+  border-radius: 0 6px 6px 0;
+  padding: 12px 14px;
+  margin-top: 12px;
+  font-size: 14px;
+  color: var(--sous);
+}
+
+.ia-box .etiquette {
+  font-family: "Courier New", monospace;
+  font-size: 11px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--run);
+  display: block;
+  margin-bottom: 6px;
+}
+
+.actions-ligne { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; align-items: center; }
+
+.bouton-clair {
+  display: inline-block;
+  background: var(--code);
+  color: var(--titre);
+  border: 1px solid var(--or);
+  border-radius: 6px;
+  padding: 10px 18px;
+  font-family: Georgia, serif;
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: .18s;
+}
+
+.bouton-clair:hover { background: var(--carte); }
+
+/* =========================================================
+   CATALOGUES : fiches
+   ========================================================= */
+.catalogue {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+  margin: 16px 0;
+}
+
+.fiche {
+  border: 1px solid var(--tan);
+  border-radius: 6px;
+  background: var(--carte);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: .18s;
+}
+
+.fiche:hover { border-color: var(--or); transform: translateY(-3px); box-shadow: 0 10px 24px rgba(59, 42, 14, .12); }
+
+.fiche .couv {
+  height: 148px;
+  background: linear-gradient(160deg, var(--sous), var(--titre));
+  color: var(--creme);
+  display: flex;
+  align-items: flex-end;
+  padding: 12px;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.fiche .meta { padding: 12px 14px; font-size: 13px; color: var(--sous); }
+.fiche .meta .t { color: var(--titre); font-weight: bold; display: block; margin-bottom: 4px; }
+.fiche .dewey {
+  font-family: "Courier New", monospace;
+  font-size: 11px;
+  color: var(--or);
+  margin-top: 8px;
+  display: block;
+}
+
+/* =========================================================
+   AIDE : sommaire + contenu
+   ========================================================= */
+.aide-layout {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 26px;
+  margin: 16px 0;
+  align-items: start;
+}
+
+.sommaire {
+  position: sticky;
+  top: 16px;
+  border: 1px solid var(--tan);
+  border-radius: 6px;
+  background: var(--carte);
+  padding: 14px;
+}
+
+.sommaire .etiquette {
+  font-family: "Courier New", monospace;
+  font-size: 11px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--sous);
+  margin-bottom: 8px;
+}
+
+.sommaire a {
+  display: block;
+  padding: 6px 8px;
+  color: var(--sous);
+  text-decoration: none;
+  font-size: 14px;
+  border-radius: 4px;
+}
+
+.sommaire a:hover { background: var(--code); color: var(--titre); }
+
+.aide-contenu h3 { color: var(--titre); font-size: 19px; margin: 22px 0 8px; }
+.aide-contenu h3:first-child { margin-top: 0; }
+.aide-contenu p { margin-bottom: 12px; color: var(--corps); max-width: 68ch; }
+
+/* =========================================================
+   FORMULAIRES : connexion, inscription, contact
+   ========================================================= */
+.mq-form {
+  max-width: 440px;
+  border: 1px solid var(--tan);
+  border-radius: 8px;
+  background: var(--carte);
+  padding: 24px 26px;
+  margin: 16px 0;
+}
+
+.mq-form.large { max-width: 620px; }
+
+.mq-champ { margin-bottom: 16px; }
+
+.mq-champ label {
+  display: block;
+  font-family: "Courier New", monospace;
+  font-size: 11.5px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--sous);
+  margin-bottom: 6px;
+}
+
+.mq-champ input,
+.mq-champ select,
+.mq-champ textarea {
+  width: 100%;
+  border: 1px solid var(--tan);
+  border-radius: 6px;
+  background: var(--code);
+  padding: 10px 12px;
+  font-family: Georgia, serif;
+  font-size: 14px;
+  color: var(--corps);
+}
+
+.mq-champ input:focus,
+.mq-champ textarea:focus,
+.mq-champ select:focus { outline: none; border-color: var(--or); }
+
+.mq-champ textarea { min-height: 110px; resize: vertical; }
+
+.mq-deux { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+
+.bouton-plein {
+  display: inline-block;
+  background: var(--titre);
+  color: var(--creme);
+  border: none;
+  border-radius: 6px;
+  padding: 11px 22px;
+  font-family: Georgia, serif;
+  font-weight: bold;
+  font-size: 15px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: .18s;
+}
+
+.bouton-plein:hover { background: var(--sous); }
+
+.mq-form .aide-lien {
+  display: block;
+  margin-top: 14px;
+  font-size: 13px;
+  color: var(--sous);
+}
+
+.mq-form .aide-lien a { color: var(--or); }
+
+.mq-coord {
+  border-left: 4px solid var(--or);
+  padding: 4px 0 4px 16px;
+  margin: 16px 0;
+  color: var(--sous);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.mq-coord b { color: var(--titre); }
+
+/* Journaux : fil d'activité */
+.fil { margin: 16px 0; border-left: 2px solid var(--tan); padding-left: 20px; }
+
+.fil-item { position: relative; padding: 0 0 20px 6px; }
+
+.fil-item::before {
+  content: "";
+  position: absolute;
+  left: -27px;
+  top: 4px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--carte);
+  border: 2px solid var(--or);
+}
+
+.fil-item .quand {
+  font-family: "Courier New", monospace;
+  font-size: 11.5px;
+  color: var(--sous);
+}
+
+.fil-item .quoi { color: var(--titre); font-weight: bold; margin: 2px 0; }
+.fil-item .detail { color: var(--corps); font-size: 13.5px; }
+
+/* Page d'index des maquettes */
+.mq-liste {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 16px;
+  margin: 20px 0;
+}
+
+.mq-liste a {
+  border: 1px solid var(--tan);
+  border-radius: 6px;
+  background: var(--carte);
+  padding: 18px 20px;
+  text-decoration: none;
+  color: inherit;
+  transition: .18s;
+}
+
+.mq-liste a:hover { border-color: var(--or); transform: translateY(-2px); box-shadow: 0 8px 20px rgba(59, 42, 14, .12); }
+.mq-liste b { color: var(--titre); font-size: 17px; display: block; margin-bottom: 6px; }
+.mq-liste span { color: var(--sous); font-size: 13.5px; }
+
+@media (max-width: 800px) {
+  .split { grid-template-columns: 1fr; }
+  .aide-layout { grid-template-columns: 1fr; }
+  .sommaire { position: static; }
+}

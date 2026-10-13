@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SEH-NC · Maquette · Aide</title>
+  <link rel="stylesheet" href="../css/atelier.css">
+  <link rel="stylesheet" href="maquettes.css">
+</head>
+<body>
+
+  <div class="logo-header">
+    <a href="index.html" style="text-decoration:none">
+      <img src="../seh1.jpg" alt="Logo SEH-NC" onerror="this.style.display='none'">
+      <div class="brand">SEH &middot; Atelier de production
+        <span>SOCIÉTÉ D'ÉTUDES HISTORIQUES &middot; NC</span>
+        <small>FONDS PATRIMONIAL CALÉDONIEN</small>
+      </div>
+    </a>
+  </div>
+
+  <input type="checkbox" id="bascule-menu" class="menu-bascule" hidden>
+  <label for="bascule-menu" class="menu-ouvrir" aria-label="Ouvrir le menu" title="Menu"><span></span><span></span><span></span></label>
+  <label for="bascule-menu" class="menu-fond" aria-hidden="true"></label>
+  <aside class="menu-tiroir">
+    <label for="bascule-menu" class="menu-fermer" aria-label="Fermer le menu" title="Fermer">&times;</label>
+    <nav class="menu-liens">
+      <a href="index.html" class="menu-accueil">&#8962; Sommaire maquettes</a>
+      <a href="fonds.html">Fonds</a>
+      <a href="connexion.html">Connexion</a>
+      <a href="inscription.html">Inscription</a>
+      <a href="convertisseur.html">Convertisseur par document</a>
+      <a href="lots.html">Par lots</a>
+      <a href="catalogues.html">Catalogues</a>
+      <a href="journaux.html">Journaux</a>
+      <a href="contact.html" class="petit">Contact</a>
+      <a href="aide.html" class="petit actif">Aide</a>
+    </nav>
+  </aside>
+
+  <main class="wrap contenu-atelier">
+    <div class="titre-atelier">Aide</div>
+
+    <p class="mq-intro">Guide d'usage pour les membres, pensé pour des utilisateurs non informaticiens. Chaque étape est décrite simplement.</p>
+    <div class="mq-note"><b>Statut :</b> maquette visuelle à valider. Contenu d'exemple.</div>
+
+    <div class="aide-layout">
+      <nav class="sommaire">
+        <div class="etiquette">Sommaire</div>
+        <a href="#demarrer">Démarrer</a>
+        <a href="#relire">Relire un bulletin</a>
+        <a href="#zone">Désigner une zone</a>
+        <a href="#action">Choisir une action</a>
+        <a href="#ia">La proposition IA</a>
+        <a href="#lots">Traiter par lots</a>
+      </nav>
+
+      <div class="aide-contenu">
+        <h3 id="demarrer">Démarrer</h3>
+        <p>Connecte-toi avec ton identifiant de membre. Tu arrives sur la page Fonds, qui montre les travaux en cours et les bulletins disponibles. Choisis un bulletin pour commencer.</p>
+
+        <h3 id="relire">Relire un bulletin</h3>
+        <p>Ouvre le Convertisseur par document. Le PDF d'origine s'affiche à gauche, l'aperçu du livre numérique (EPUB) à droite. Tu compares les deux page à page grâce aux flèches en haut.</p>
+
+        <h3 id="zone">Désigner une zone</h3>
+        <p>Sur le PDF, maintiens le clic et trace un rectangle autour du passage à corriger. Un cadre apparaît : c'est la zone que tu prescris à l'atelier. Tu n'as rien à coder, tu montres simplement l'endroit.</p>
+
+        <h3 id="action">Choisir une action</h3>
+        <p>Dans le panneau de correction, choisis une action dans la liste de mots-clés : corriger, effacer, déplacer, légender, et ainsi de suite. Ajoute une consigne en une phrase pour préciser ce que tu attends.</p>
+
+        <h3 id="ia">La proposition IA</h3>
+        <p>L'assistant propose une correction en une seule passe. Tu la relis, puis tu valides pour l'appliquer, ou tu la modifies. Rien n'est changé sans ta validation : tu restes le prescripteur.</p>
+
+        <h3 id="lots">Traiter par lots</h3>
+        <p>Pour convertir plusieurs bulletins d'un coup sans relecture fine, utilise la page Par lots : dépose les fichiers, lance la conversion et suis la progression.</p>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer-marron">
+    <div class="wrap">
+      <nav class="nav-bas">
+        <a href="fonds.html">Fonds</a>
+        <a href="catalogues.html">Catalogues</a>
+        <a href="journaux.html">Journaux</a>
+        <a href="aide.html" class="icon" title="Aide" aria-label="Aide">&#9072;</a>
+        <a href="contact.html" class="icon" title="Contact" aria-label="Contact">&#9993;</a>
+      </nav>
+      <div class="copy">
+        Atelier de production <b>SEH-NC</b><span class="sep">&middot;</span>Maquettes<span class="sep">&middot;</span>Composant 1<br>
+        <span style="opacity:0.6; font-size:11px;">&copy; SEH-NC &middot; Document de travail</span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

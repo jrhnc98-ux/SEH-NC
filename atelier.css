@@ -1,0 +1,2053 @@
+:root {
+      --corps: #1A1008;
+      /* texte courant */
+      --titre: #3B2A0E;
+      /* titres */
+      --sous: #6B4C1E;
+      /* sous-titres */
+      --or: #9A7D50;
+      /* or, filets */
+      --tan: #C8BFA8;
+      /* tan */
+      --code: #F6F1E7;
+      /* fond clair */
+      --page: #EBE1CC;
+      /* parchemin */
+      --carte: #F8F3E8;
+      /* fiche */
+      --creme: #F6F1E7;
+      /* texte sur brun */
+      --warn: #9B4722;
+      /* terre brûlée, anomalie */
+      --run: #B0842F;
+      /* ambre, en cours */
+      --idle: #DAD0B8;
+      /* papier en attente */
+      --radius: 6px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0
+    }
+
+    html {
+      scroll-behavior: smooth
+    }
+
+    body {
+      background: var(--page);
+      color: var(--corps);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .wrap {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 26px;
+      width: 100%;
+    }
+
+    /* =========================================================
+               1. LOGO CENTRÉ EN HAUT
+               ========================================================= */
+    .logo-header {
+      text-align: center;
+      padding: 30px 0 20px;
+      border-bottom: 3px double #9A7D50;
+      margin-bottom: 10px;
+    }
+
+    .logo-header img {
+      max-width: 336px;
+      /* Ajuste selon la taille de ton image */
+      height: auto;
+      display: block;
+      margin: 0 auto 12px;
+      /* Centre l'image et laisse un espace en dessous */
+      border-radius: 6px;
+      /* Optionnel : coins arrondis */
+    }
+
+    .logo-header .brand {
+      font-size: 22px;
+      font-weight: bold;
+      color: #3B2A0E;
+      letter-spacing: 0.03em;
+    }
+
+    .logo-header .brand span {
+      display: block;
+      font-weight: normal;
+      font-size: 15px;
+      color: #6B4C1E;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      font-family: "Courier New", monospace;
+      margin-top: 4px;
+    }
+
+    .logo-header .brand small {
+      display: block;
+      font-weight: normal;
+      font-size: 11px;
+      color: #6B4C1E;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-family: "Courier New", monospace;
+      margin-top: 2px;
+      opacity: 0.7;
+    }
+
+    /* =========================================================
+               2. CONTENU PRINCIPAL (flex:1 pour pousser le footer en bas)
+               ========================================================= */
+    main {
+      flex: 1;
+    }
+
+    /* ---------- Hero ---------- */
+    .hero {
+      padding: 32px 0 26px
+    }
+
+    .eyebrow {
+      font-family: "Courier New", monospace;
+      font-size: 12px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--sous);
+      margin-bottom: 18px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 34px;
+      height: 2px;
+      background: var(--or)
+    }
+
+    h1 {
+      font-family: Georgia, serif;
+      font-weight: bold;
+      color: var(--titre);
+      font-size: clamp(32px, 4.8vw, 50px);
+      line-height: 1.08;
+      max-width: 17ch;
+    }
+
+    h1 em {
+      font-style: italic;
+      color: var(--sous)
+    }
+
+    .lede {
+      margin-top: 18px;
+      max-width: 58ch;
+      color: var(--sous);
+      font-size: 16.5px
+    }
+
+    /* ---------- Cartouche état du fonds ---------- */
+    .fonds {
+      margin-top: 36px;
+      background: var(--carte);
+      border: 1px solid var(--or);
+      border-radius: var(--radius);
+      box-shadow: 0 1px 0 var(--tan), 0 10px 30px rgba(59, 42, 14, .08);
+      overflow: hidden;
+    }
+
+    .fonds-head {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-end;
+      gap: 18px;
+      padding: 20px 26px 16px;
+      border-bottom: 3px double var(--or);
+    }
+
+    .fonds-head .big {
+      font-weight: bold;
+      color: var(--titre);
+      font-size: 16px
+    }
+
+    .fonds-head .cote {
+      font-family: "Courier New", monospace;
+      font-size: 12.5px;
+      color: var(--sous);
+      margin-top: 4px;
+    }
+
+    .fonds-head .pct {
+      margin-left: auto;
+      text-align: right
+    }
+
+    .fonds-head .pct b {
+      font-weight: bold;
+      font-size: 38px;
+      color: var(--or);
+      line-height: 1;
+    }
+
+    .fonds-head .pct span {
+      display: block;
+      font-family: "Courier New", monospace;
+      font-size: 11.5px;
+      color: var(--sous);
+      letter-spacing: .04em;
+      margin-top: 5px;
+    }
+
+    .shelf {
+      display: flex;
+      align-items: flex-end;
+      gap: 2.5px;
+      height: 82px;
+      padding: 22px 26px 12px
+    }
+
+    .slot {
+      flex: 1 1 auto;
+      border-radius: 2px 2px 0 0;
+      background: var(--idle);
+      box-shadow: inset -1px 0 0 rgba(59, 42, 14, .10);
+      transform-origin: bottom;
+      transform: scaleY(0);
+      animation: grow .5s cubic-bezier(.2, .8, .25, 1) forwards;
+    }
+
+    @keyframes grow {
+      to {
+        transform: scaleY(1)
+      }
+    }
+
+    .slot.ok {
+      background: var(--or)
+    }
+
+    .slot.warn {
+      background: var(--warn)
+    }
+
+    .slot.run {
+      background: var(--run)
+    }
+
+    .legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 22px;
+      padding: 4px 26px 22px;
+      font-size: 14px;
+      color: var(--sous);
+    }
+
+    .legend div {
+      display: flex;
+      align-items: center;
+      gap: 9px
+    }
+
+    .dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 3px;
+      flex: none;
+      box-shadow: inset -1px 0 0 rgba(59, 42, 14, .12)
+    }
+
+    .dot.ok {
+      background: var(--or)
+    }
+
+    .dot.warn {
+      background: var(--warn)
+    }
+
+    .dot.run {
+      background: var(--run)
+    }
+
+    .dot.idle {
+      background: var(--idle)
+    }
+
+    .legend b {
+      color: var(--titre);
+      font-family: "Courier New", monospace
+    }
+
+    /* ---------- Libellé de section ---------- */
+    .section-label {
+      text-align: center;
+      color: var(--titre);
+      font-weight: bold;
+      font-size: 15px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      margin: 54px 0 22px;
+      position: relative;
+      padding: 12px 0;
+      border-top: 3px double var(--or);
+      border-bottom: 3px double var(--or);
+    }
+
+    /* ---------- Grille d'actions ---------- */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 16px
+    }
+
+    .card {
+      grid-column: span 6;
+      background: var(--carte);
+      border: 1px solid var(--tan);
+      border-radius: var(--radius);
+      padding: 24px;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      position: relative;
+      transition: transform .2s, border-color .2s, box-shadow .2s;
+    }
+
+    .card:hover,
+    .card:focus-visible {
+      transform: translateY(-3px);
+      border-color: var(--or);
+      box-shadow: 0 10px 26px rgba(59, 42, 14, .14);
+      outline: none;
+    }
+
+    .card .ico {
+      width: 46px;
+      height: 46px;
+      border-radius: 6px;
+      display: grid;
+      place-items: center;
+      font-size: 23px;
+      background: var(--code);
+      border: 1px solid var(--tan);
+      margin-bottom: 16px;
+    }
+
+    .card h3 {
+      color: var(--titre);
+      font-weight: bold;
+      font-size: 21px;
+      margin-bottom: 6px
+    }
+
+    .card p {
+      color: var(--sous);
+      font-size: 14.5px;
+      max-width: 44ch
+    }
+
+    .card .go {
+      margin-top: 16px;
+      font-size: 14px;
+      font-weight: bold;
+      color: var(--or);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: gap .2s;
+    }
+
+    .card:hover .go {
+      gap: 13px
+    }
+
+    .badge {
+      position: absolute;
+      top: 24px;
+      right: 24px;
+      background: var(--warn);
+      color: var(--creme);
+      font-size: 12px;
+      font-weight: bold;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-family: "Courier New", monospace;
+    }
+
+    .card.primary {
+      grid-column: span 12;
+      background: linear-gradient(180deg, var(--code), var(--carte));
+      border: 2px solid var(--or);
+      display: flex;
+      align-items: center;
+      gap: 26px;
+      flex-wrap: wrap;
+    }
+
+    .card.primary .ico {
+      width: 58px;
+      height: 58px;
+      font-size: 30px;
+      margin: 0;
+      background: var(--titre);
+      border-color: var(--or)
+    }
+
+    .card.primary .body {
+      flex: 1;
+      min-width: 220px
+    }
+
+    .card.primary h3 {
+      font-size: 25px
+    }
+
+    .card.primary .cta {
+      background: var(--titre);
+      color: var(--creme);
+      border: none;
+      border-radius: 6px;
+      padding: 14px 28px;
+      font-family: Georgia, serif;
+      font-weight: bold;
+      font-size: 16px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      transition: .18s;
+      text-decoration: none;
+      border: 1px solid var(--or);
+    }
+
+    .card.primary .cta:hover,
+    .card.primary .cta:focus-visible {
+      background: var(--sous);
+      transform: translateY(-2px);
+      outline: none;
+    }
+
+    /* ---------- Journal ---------- */
+    .recent {
+      border: 1px solid var(--or);
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: var(--carte);
+      margin-bottom: 30px;
+    }
+
+    .recent .thead {
+      background: var(--titre);
+      color: var(--creme);
+      padding: 11px 22px;
+      font-size: 12px;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      font-family: "Courier New", monospace;
+    }
+
+    .row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 14px 22px;
+      border-bottom: 1px solid var(--tan);
+      font-size: 14.5px;
+    }
+
+    .row:last-child {
+      border-bottom: none
+    }
+
+    .row:nth-child(even) {
+      background: rgba(200, 191, 168, .14)
+    }
+
+    .row .st {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      flex: none
+    }
+
+    .st.ok {
+      background: var(--or)
+    }
+
+    .st.warn {
+      background: var(--warn)
+    }
+
+    .st.run {
+      background: var(--run)
+    }
+
+    .row .name {
+      font-weight: bold;
+      color: var(--titre)
+    }
+
+    .row .ref {
+      font-family: "Courier New", monospace;
+      font-size: 12.5px;
+      color: var(--sous)
+    }
+
+    .row .state {
+      margin-left: auto;
+      font-size: 14px;
+      color: var(--sous)
+    }
+
+    .row .state.warn {
+      color: var(--warn);
+      font-weight: bold
+    }
+
+    .row .time {
+      width: 92px;
+      text-align: right;
+      font-size: 12.5px;
+      color: var(--sous);
+      font-family: "Courier New", monospace
+    }
+
+    /* =========================================================
+    3. FOOTER MARRON EN BAS (avec le menu)
+    ========================================================= */
+    .footer-marron {
+      background: var(--titre);
+      /* #3B2A0E */
+      color: var(--creme);
+      padding: 18px 0 22px;
+      border-top: 3px double var(--or);
+      margin-top: 20px;
+      flex-shrink: 0;
+    }
+
+    .footer-marron .wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .footer-marron .nav-bas {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px 24px;
+    }
+
+    .footer-marron .nav-bas a {
+      color: var(--tan);
+      text-decoration: none;
+      font-size: 14px;
+      padding: 6px 10px;
+      border-radius: 4px;
+      transition: .18s;
+      font-family: Georgia, serif;
+    }
+
+    .footer-marron .nav-bas a:hover,
+    .footer-marron .nav-bas a:focus-visible {
+      color: var(--creme);
+      background: rgba(246, 241, 231, .10);
+      outline: none;
+    }
+
+    .footer-marron .nav-bas a.icon {
+      font-size: 16px;
+    }
+
+    .footer-marron .copy {
+      font-size: 12.5px;
+      color: var(--tan);
+      text-align: center;
+      letter-spacing: .04em;
+      border-top: 1px solid rgba(200, 191, 168, .20);
+      padding-top: 12px;
+      width: 100%;
+    }
+
+    .footer-marron .copy b {
+      color: var(--creme);
+    }
+
+    .footer-marron .copy .sep {
+      color: var(--or);
+      margin: 0 6px;
+    }
+
+    /* =========================================================
+               RESPONSIVE
+               ========================================================= */
+    @media(max-width:720px) {
+      .card {
+        grid-column: span 12
+      }
+
+      .hero {
+        padding: 22px 0 12px
+      }
+
+      .row .ref {
+        display: none
+      }
+
+      .fonds-head .pct {
+        margin-left: 0;
+        text-align: left;
+        width: 100%
+      }
+
+      .logo-header img {
+        max-width: 170px;
+      }
+
+      .logo-header .brand {
+        font-size: 18px;
+      }
+
+      .footer-marron .nav-bas {
+        gap: 4px 14px;
+      }
+
+      .footer-marron .nav-bas a {
+        font-size: 13px;
+        padding: 4px 8px;
+      }
+    }
+
+    @media(prefers-reduced-motion:reduce) {
+      .slot {
+        animation: none;
+        transform: none
+      }
+
+      * {
+        transition: none !important
+      }
+    }
+
+/* =========================================================
+   BARRE DE NAVIGATION : boutons verticaux permanents
+   ========================================================= */
+.barre-nav {
+  border-top: 1px solid var(--titre);
+  border-bottom: 1px solid var(--titre);
+  background: var(--carte);
+  margin-bottom: 26px;
+}
+
+.barre-nav .wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 9px;
+  max-width: 640px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
+/* Boutons d'accueil : plaques de bois bombées (veinage + nœud).
+   État .enfonce (piloté en JS, sélection unique) : bouton pressé,
+   texte gravé "creux". */
+.barre-nav a {
+  display: block;
+  position: relative;
+  border: 1px solid #b58f57;
+  border-radius: 6px;
+  padding: 10px 16px;
+  font-family: Georgia, serif;
+  font-size: 14.5px;
+  font-weight: bold;
+  color: #3d2810;
+  text-decoration: none;
+  text-align: center;
+  /* Veinage du pin (le long du bouton) sur un fond bois clair naturel */
+  background:
+    repeating-linear-gradient(90deg,
+      rgba(150,105,55,0)   0px,
+      rgba(150,105,55,.16) 2px,
+      rgba(150,105,55,0)   5px,
+      rgba(110,70,30,.10)  9px,
+      rgba(150,105,55,0)  13px),
+    linear-gradient(180deg, #ecd2a6 0%, #ddba82 58%, #cda768 100%);
+  /* Relief : liseré lumineux en haut, ombre interne en bas, ombre portée */
+  box-shadow:
+    inset 0 1px 0 rgba(255,248,228,.6),
+    inset 0 -2px 3px rgba(120,80,38,.4),
+    0 4px 7px rgba(120,80,38,.32);
+  text-shadow: 0 1px 0 rgba(255,248,228,.55);
+  transition: transform .08s ease, box-shadow .12s ease, background .12s ease, color .12s ease;
+}
+
+/* Nœud du pin : petit ovale de cernes concentriques, en haut à gauche */
+.barre-nav a::after {
+  content: "";
+  position: absolute;
+  top: 7px;
+  left: 15px;
+  width: 26px;
+  height: 15px;
+  border-radius: 50%;
+  background:
+    radial-gradient(closest-side,
+      #6e4a20 0%, #855a2a 24%,
+      rgba(150,105,55,.7) 46%,
+      rgba(180,135,80,.32) 68%,
+      rgba(180,135,80,0) 84%);
+  transform: rotate(-12deg);
+  opacity: .5;
+  pointer-events: none;
+}
+
+.barre-nav a:hover,
+.barre-nav a:focus-visible {
+  outline: none;
+  transform: translateY(-1px);
+  color: #2e1d0a;
+  box-shadow:
+    inset 0 1px 0 rgba(255,250,235,.7),
+    inset 0 -2px 3px rgba(120,80,38,.36),
+    0 6px 11px rgba(120,80,38,.4);
+}
+
+/* État ENFONCÉ : bois acajou foncé, enfoncé et verrouillé (comme l'interrupteur). */
+.barre-nav a.enfonce,
+.barre-nav a.enfonce:hover {
+  transform: translateY(1px);
+  color: #f3e2d0;
+  background:
+    repeating-linear-gradient(90deg,
+      rgba(40,16,8,0)   0px, rgba(40,16,8,.28) 2px, rgba(40,16,8,0)   5px,
+      rgba(20,8,4,.18)  9px, rgba(40,16,8,0)   13px),
+    linear-gradient(180deg, #5a2a18 0%, #6b3420 52%, #7a3e26 100%);
+  box-shadow:
+    inset 0 2px 5px rgba(20,8,4,.6),
+    inset 0 -1px 0 rgba(255,232,205,.18);
+  text-shadow: 0 1px 1px rgba(0,0,0,.4);
+}
+/* Le nœud du pin s'efface sur l'acajou pour rester lisible. */
+.barre-nav a.enfonce::after { opacity: .18; }
+
+.barre-nav a.actif {
+  background: var(--titre);
+  color: var(--creme);
+}
+
+.barre-nav a.petit {
+  font-size: 13px;
+  padding: 8px 12px;
+}
+
+/* Titre de page sous la barre (comme le croquis) */
+.titre-atelier {
+  text-align: center;
+  font-family: Georgia, serif;
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--titre);
+  margin: 6px 0 24px;
+  letter-spacing: .02em;
+}
+
+
+/* =========================================================
+   PAGES INTERNES : panneaux, formulaires, encart classes
+   ========================================================= */
+.panneau {
+  background: var(--carte);
+  border: 1px solid var(--or);
+  border-radius: var(--radius);
+  padding: 26px 30px;
+  margin-bottom: 26px;
+}
+
+.panneau h2 {
+  color: var(--titre);
+  font-size: 22px;
+  margin-bottom: 12px;
+}
+
+.panneau p { margin-bottom: 12px; }
+
+.panneau label {
+  display: block;
+  font-weight: bold;
+  color: var(--sous);
+  margin: 14px 0 4px;
+  font-size: 14px;
+}
+
+.panneau input[type=text],
+.panneau input[type=email],
+.panneau input[type=password],
+.panneau input[type=file],
+.panneau select,
+.panneau textarea {
+  width: 100%;
+  max-width: 480px;
+  padding: 9px 12px;
+  border: 1px solid var(--tan);
+  border-radius: 4px;
+  background: var(--code);
+  font-family: Georgia, serif;
+  font-size: 15px;
+  color: var(--corps);
+}
+
+/* Champ de fichier du convertisseur : pleine largeur pour voir un nom long. */
+#pdf { max-width: 100%; }
+
+/* Bouton natif "Choisir un fichier" : même plaque de bois que les boutons */
+input[type=file]::file-selector-button,
+input[type=file]::-webkit-file-upload-button {
+  border: 1px solid #b58f57;
+  border-radius: 5px;
+  padding: 6px 14px;
+  margin-right: 12px;
+  font-family: Georgia, serif;
+  font-weight: bold;
+  font-size: 13px;
+  color: #3d2810;
+  cursor: pointer;
+  background:
+    repeating-linear-gradient(90deg,
+      rgba(150,105,55,0)   0px,
+      rgba(150,105,55,.16) 2px,
+      rgba(150,105,55,0)   5px,
+      rgba(110,70,30,.10)  9px,
+      rgba(150,105,55,0)  13px),
+    linear-gradient(180deg, #ecd2a6 0%, #ddba82 58%, #cda768 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255,248,228,.55),
+    inset 0 -1px 2px rgba(120,80,38,.35),
+    0 2px 4px rgba(120,80,38,.28);
+  text-shadow: 0 1px 0 rgba(255,248,228,.5);
+  transition: transform .08s ease, box-shadow .12s ease, color .12s ease;
+}
+input[type=file]::file-selector-button:hover {
+  transform: translateY(-1px);
+  color: #2e1d0a;
+  box-shadow:
+    inset 0 1px 0 rgba(255,250,235,.65),
+    inset 0 -1px 2px rgba(120,80,38,.32),
+    0 4px 7px rgba(120,80,38,.36);
+}
+
+/* Boutons d'action : même plaque de bois bombée que l'accueil (.barre-nav a),
+   appliquée partout sur le site. */
+.bouton,
+.panneau .bouton {
+  display: inline-block;
+  position: relative;
+  margin-top: 18px;
+  border: 1px solid #b58f57;
+  border-radius: 6px;
+  padding: 11px 24px;
+  font-family: Georgia, serif;
+  font-weight: bold;
+  font-size: 15px;
+  color: #3d2810;
+  cursor: pointer;
+  text-decoration: none;
+  background:
+    repeating-linear-gradient(90deg,
+      rgba(150,105,55,0)   0px,
+      rgba(150,105,55,.16) 2px,
+      rgba(150,105,55,0)   5px,
+      rgba(110,70,30,.10)  9px,
+      rgba(150,105,55,0)  13px),
+    linear-gradient(180deg, #ecd2a6 0%, #ddba82 58%, #cda768 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255,248,228,.6),
+    inset 0 -2px 3px rgba(120,80,38,.4),
+    0 4px 7px rgba(120,80,38,.32);
+  text-shadow: 0 1px 0 rgba(255,248,228,.55);
+  transition: transform .08s ease, box-shadow .12s ease, background .12s ease, color .12s ease;
+}
+
+.bouton:hover,
+.panneau .bouton:hover {
+  transform: translateY(-1px);
+  color: #2e1d0a;
+  box-shadow:
+    inset 0 1px 0 rgba(255,250,235,.7),
+    inset 0 -2px 3px rgba(120,80,38,.36),
+    0 6px 11px rgba(120,80,38,.4);
+}
+
+/* Encart : classes du diagramme mobilisées par la page */
+.classes-liees {
+  border-left: 4px solid var(--or);
+  background: var(--code);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  padding: 16px 20px;
+  margin: 26px 0;
+  font-size: 14px;
+}
+
+.classes-liees .etiquette {
+  font-family: "Courier New", monospace;
+  font-size: 11.5px;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--sous);
+  margin-bottom: 8px;
+}
+
+.classes-liees code {
+  font-family: "Courier New", monospace;
+  font-size: 13px;
+  color: var(--titre);
+  background: rgba(200,191,168,.35);
+  padding: 1px 5px;
+  border-radius: 3px;
+}
+
+.classes-liees li { margin: 4px 0 4px 18px; }
+
+/* Accueil : zone centrale sobre du croquis */
+.accueil-zone {
+  min-height: 46vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 30px 0 40px;
+}
+
+.accueil-zone .devise {
+  font-style: italic;
+  color: var(--sous);
+  font-size: 19px;
+  max-width: 60ch;
+  margin-bottom: 10px;
+}
+
+.accueil-zone .signature {
+  font-family: "Courier New", monospace;
+  font-size: 12px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--or);
+  margin-bottom: 34px;
+}
+
+.accueil-zone .entrer {
+  background: var(--titre);
+  color: var(--creme);
+  border: 1px solid var(--or);
+  border-radius: 6px;
+  padding: 14px 30px;
+  font-family: Georgia, serif;
+  font-weight: bold;
+  font-size: 16px;
+  text-decoration: none;
+  transition: .18s;
+}
+
+.accueil-zone .entrer:hover { background: var(--sous); transform: translateY(-2px); }
+
+
+/* =========================================================
+   ACCUEIL : info-bulle de BD au survol des boutons du menu
+   La bulle apparaît à droite du bouton survolé.
+   ========================================================= */
+
+.barre-nav a.a-tip .bulle-tip {
+  position: absolute;
+  left: calc(100% + 18px);
+  top: 50%;
+  transform: translateY(-50%) translateX(-6px);
+  width: max-content;
+  max-width: 320px;
+  background: var(--carte);
+  color: var(--sous);
+  border: 1px solid var(--or);
+  border-radius: 14px;
+  padding: 11px 15px;
+  font-family: Georgia, serif;
+  font-weight: normal;
+  font-size: 13.5px;
+  line-height: 1.45;
+  text-align: left;
+  white-space: normal;
+  box-shadow: 0 4px 12px rgba(59, 42, 14, .16);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity .16s ease, transform .16s ease;
+  z-index: 20;
+}
+
+/* Queue triangulaire pointant vers le bouton (à gauche de la bulle) */
+.barre-nav a.a-tip .bulle-tip::before,
+.barre-nav a.a-tip .bulle-tip::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+}
+.barre-nav a.a-tip .bulle-tip::before {
+  left: -12px;
+  border-top: 9px solid transparent;
+  border-bottom: 9px solid transparent;
+  border-right: 12px solid var(--or);
+}
+.barre-nav a.a-tip .bulle-tip::after {
+  left: -10px;
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+  border-right: 11px solid var(--carte);
+}
+
+.barre-nav a.a-tip:hover .bulle-tip,
+.barre-nav a.a-tip:focus-visible .bulle-tip {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(-50%) translateX(0);
+}
+
+@media (max-width: 820px) {
+  .barre-nav a.a-tip .bulle-tip { display: none; }
+}
+
+
+/* =========================================================
+   PAGES INTERNES : tiroir de navigation coulissant (off-canvas)
+   Icône hamburger tout à gauche, ouvre un tiroir depuis la gauche.
+   Pur CSS, aucune dépendance (astuce case à cocher).
+   ========================================================= */
+
+/* La case à cocher pilote l'ouverture, elle reste invisible */
+.menu-bascule { position: absolute; opacity: 0; pointer-events: none; }
+
+/* Icône hamburger, fixée en haut à gauche */
+.menu-ouvrir {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  z-index: 40;
+  width: 46px;
+  height: 46px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  background: var(--carte);
+  border: 1px solid var(--titre);
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(59, 42, 14, .16);
+  cursor: pointer;
+  transition: .18s;
+}
+
+.menu-ouvrir:hover { background: var(--code); transform: translateY(-1px); }
+
+.menu-ouvrir span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--titre);
+  border-radius: 2px;
+}
+
+/* Fond sombre, clic pour fermer, masqué par défaut */
+.menu-fond {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  background: rgba(26, 16, 8, .45);
+  opacity: 0;
+  visibility: hidden;
+  cursor: pointer;
+  transition: opacity .25s, visibility .25s;
+}
+
+/* Le tiroir, hors écran par défaut */
+.menu-tiroir {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 60;
+  width: 264px;
+  max-width: 82vw;
+  height: 100%;
+  background: var(--carte);
+  border-right: 3px double var(--or);
+  box-shadow: 4px 0 24px rgba(59, 42, 14, .22);
+  padding: 18px 18px 26px;
+  transform: translateX(-100%);
+  transition: transform .25s ease;
+  overflow-y: auto;
+}
+
+/* État ouvert */
+.menu-bascule:checked ~ .menu-fond { opacity: 1; visibility: visible; }
+.menu-bascule:checked ~ .menu-tiroir { transform: translateX(0); }
+
+/* Bouton fermer (croix) dans le tiroir */
+.menu-fermer {
+  display: block;
+  margin-left: auto;
+  width: 34px;
+  height: 34px;
+  line-height: 32px;
+  text-align: center;
+  font-size: 24px;
+  color: var(--titre);
+  background: var(--code);
+  border: 1px solid var(--tan);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: .18s;
+}
+
+.menu-fermer:hover { background: var(--titre); color: var(--creme); }
+
+/* Liste des liens dans le tiroir */
+.menu-tiroir .menu-liens {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.menu-liens a {
+  display: block;
+  border: 1px solid var(--tan);
+  border-radius: 4px;
+  padding: 9px 12px;
+  font-family: Georgia, serif;
+  font-size: 14.5px;
+  font-weight: bold;
+  color: var(--titre);
+  text-decoration: none;
+  background: var(--code);
+  transition: .15s;
+}
+
+.menu-liens a:hover,
+.menu-liens a:focus-visible {
+  background: var(--titre);
+  color: var(--creme);
+  outline: none;
+  transform: translateX(2px);
+}
+
+.menu-liens a.actif {
+  background: var(--titre);
+  color: var(--creme);
+  border-color: var(--titre);
+}
+
+.menu-liens a.petit {
+  font-size: 13px;
+  padding: 7px 10px;
+}
+
+/* Lien de retour vers la première page, mis en avant */
+.menu-liens a.menu-accueil {
+  background: var(--titre);
+  color: var(--creme);
+  border-color: var(--or);
+  text-align: center;
+  margin-bottom: 6px;
+}
+
+.menu-liens a.menu-accueil:hover,
+.menu-liens a.menu-accueil:focus-visible {
+  background: var(--sous);
+}
+
+/* Le contenu occupe toute la largeur, l'icône flotte par-dessus le coin */
+.contenu-atelier { padding-top: 8px; }
+
+/* =========================================================
+   COMPOSANTS DES PAGES INTERNES (design validé sur maquettes)
+   ========================================================= */
+
+/* Titres alignés à gauche */
+.contenu-atelier .titre-atelier {
+  text-align: left;
+  border-bottom: 3px double var(--or);
+  padding-bottom: 10px;
+  margin: 4px 0 20px;
+}
+
+.page-intro {
+  color: var(--sous);
+  font-size: 16px;
+  max-width: 70ch;
+  margin-bottom: 18px;
+}
+
+/* Étiquette de section */
+.bloc-titre {
+  font-family: "Courier New", monospace;
+  font-size: 12px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--sous);
+  margin: 26px 0 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.bloc-titre::before {
+  content: "";
+  width: 30px;
+  height: 2px;
+  background: var(--or);
+}
+
+/* Compteurs / statistiques */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 14px;
+  margin: 18px 0;
+}
+
+.stat {
+  background: var(--carte);
+  border: 1px solid var(--tan);
+  border-radius: 6px;
+  padding: 16px 18px;
+}
+
+.stat b {
+  display: block;
+  font-size: 30px;
+  color: var(--or);
+  line-height: 1;
+}
+
+.stat span {
+  display: block;
+  font-family: "Courier New", monospace;
+  font-size: 11.5px;
+  color: var(--sous);
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  margin-top: 6px;
+}
+
+/* Barre d'outils / filtres */
+.barre-outils {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  margin: 16px 0;
+}
+
+.filtre {
+  border: 1px solid var(--tan);
+  background: var(--code);
+  border-radius: 20px;
+  padding: 6px 14px;
+  font-size: 13px;
+  font-family: Georgia, serif;
+  color: var(--titre);
+  cursor: pointer;
+  transition: .15s;
+}
+
+.filtre:hover { border-color: var(--or); }
+.filtre.on { background: var(--titre); color: var(--creme); border-color: var(--titre); }
+
+.recherche {
+  flex: 1;
+  min-width: 180px;
+  border: 1px solid var(--tan);
+  border-radius: 6px;
+  background: var(--code);
+  padding: 8px 12px;
+  font-family: Georgia, serif;
+  font-size: 14px;
+  color: var(--corps);
+}
+
+/* Badges d'état */
+.etat {
+  display: inline-block;
+  font-family: "Courier New", monospace;
+  font-size: 11px;
+  letter-spacing: .04em;
+  padding: 3px 10px;
+  border-radius: 12px;
+}
+
+.etat.attente { background: var(--idle); color: var(--titre); }
+.etat.cours   { background: var(--run);  color: var(--creme); }
+.etat.ok      { background: var(--or);   color: var(--creme); }
+.etat.warn    { background: var(--warn); color: var(--creme); }
+.etat.applique { background: #3b6d11; color: var(--creme); }
+.etat.valide   { background: #3b6d11; color: var(--creme); }
+
+/* Colonne Nature : distingue un reglage Sans IA d'une exigence IA. */
+.chip-nature {
+  display: inline-block;
+  font-family: "Courier New", monospace;
+  font-size: 11px;
+  letter-spacing: .04em;
+  padding: 3px 10px;
+  border-radius: 12px;
+  border: 1px solid transparent;
+}
+.chip-nature.reglage { background: #e6d6b4; color: #5a4322; border-color: #c9b48f; }
+.chip-nature.ia      { background: #d9e6f4; color: #244a6e; border-color: #a9c4dd; }
+
+/* Tableaux */
+.tableau {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--carte);
+  border: 1px solid var(--or);
+  border-radius: 6px;
+  overflow: hidden;
+  margin: 16px 0;
+  font-size: 14px;
+}
+
+.tableau thead th {
+  background: var(--titre);
+  color: var(--creme);
+  text-align: left;
+  padding: 11px 14px;
+  font-family: "Courier New", monospace;
+  font-size: 11.5px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  font-weight: normal;
+}
+
+.tableau td {
+  padding: 11px 14px;
+  border-bottom: 1px solid var(--tan);
+  color: var(--corps);
+}
+
+.tableau tbody tr:last-child td { border-bottom: none; }
+.tableau tbody tr:nth-child(even) { background: rgba(200, 191, 168, .14); }
+.tableau .ref { font-family: "Courier New", monospace; font-size: 12.5px; color: var(--sous); }
+.tableau .nom { font-weight: bold; color: var(--titre); }
+
+/* Colonne suppression : petite croix par ligne */
+.tableau td.exig-actions { width: 34px; text-align: center; padding: 6px 8px; }
+.exig-suppr {
+  border: 0; background: transparent; cursor: pointer;
+  color: var(--or); font-size: 17px; line-height: 1;
+  padding: 2px 7px; border-radius: 4px;
+}
+.exig-suppr:hover { background: var(--warn); color: var(--creme); }
+
+/* Barre de progression */
+.barre-prog {
+  height: 8px;
+  background: var(--idle);
+  border-radius: 4px;
+  overflow: hidden;
+  min-width: 90px;
+}
+
+.barre-prog i {
+  display: block;
+  height: 100%;
+  background: var(--or);
+}
+
+/* Zone de dépôt de fichiers */
+.depot {
+  display: block;
+  cursor: pointer;
+  border: 2px dashed var(--or);
+  border-radius: 8px;
+  background: var(--code);
+  padding: 34px 20px;
+  text-align: center;
+  color: var(--sous);
+  margin: 16px 0;
+}
+
+.depot b { display: block; color: var(--titre); font-size: 17px; margin-bottom: 6px; }
+.depot small { font-family: "Courier New", monospace; font-size: 12px; }
+.depot.survol { background: var(--tan); border-color: var(--titre); }
+.depot-boutons { margin-top: 14px; display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+
+/* Convertisseur : vue comparée PDF / EPUB */
+.split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin: 16px 0;
+}
+
+.volet {
+  border: 1px solid var(--or);
+  border-radius: 6px;
+  background: var(--carte);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.volet-tete {
+  background: var(--titre);
+  color: var(--creme);
+  padding: 8px 14px;
+  font-family: "Courier New", monospace;
+  font-size: 11.5px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.page-doc {
+  position: relative;
+  background: var(--code);
+  min-height: 430px;
+  padding: 24px 26px;
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: var(--corps);
+  cursor: crosshair;
+}
+
+.page-doc.epub { background: #FBF7EF; cursor: default; }
+.page-doc h4 { color: var(--titre); font-size: 16px; margin-bottom: 8px; }
+.page-doc p { margin-bottom: 10px; }
+.page-doc .num-page {
+  position: absolute;
+  bottom: 8px;
+  right: 12px;
+  font-family: "Courier New", monospace;
+  font-size: 11px;
+  color: var(--sous);
+}
+
+.selection {
+  position: absolute;
+  border: 2px dashed var(--warn);
+  background: rgba(155, 71, 34, .12);
+  pointer-events: none;
+}
+
+/* Convertisseur : rendu PDF.js et calque de sélection */
+#pdf-zone { padding: 0; overflow: auto; background: #4b4f52; cursor: default; max-height: 78vh; }
+#pdf-pages { padding: 4px 0; }
+.pdf-page { position: relative; width: max-content; margin: 12px auto; box-shadow: 0 2px 8px rgba(0, 0, 0, .4); background: #fff; }
+.pdf-page canvas { display: block; }
+.calque-select { position: absolute; inset: 0; pointer-events: none; }
+.calque-select.actif { pointer-events: auto; cursor: crosshair; }
+.zone-cadre { position: absolute; border: 2px solid var(--warn); background: rgba(155, 71, 34, .12); pointer-events: auto; cursor: move; }
+.zone-num { position: absolute; top: -11px; left: -2px; background: var(--warn); color: #fff; font: 11px/1 Georgia, serif; padding: 2px 6px; border-radius: 9px; white-space: nowrap; pointer-events: none; }
+.zone-cadre.cible-image { border-color: #2f7d5b; background: rgba(47, 125, 91, .14); }
+.zone-cadre.cible-image .zone-num { background: #2f7d5b; }
+.zone-cadre.cible-image .poignee-taille { border-color: #2f7d5b; }
+.zone-cadre.cible-image .poignee-suppr { color: #2f7d5b; border-color: #2f7d5b; }
+.poignee-taille { position: absolute; right: -6px; bottom: -6px; width: 12px; height: 12px; background: #fff; border: 2px solid var(--warn); border-radius: 2px; cursor: nwse-resize; }
+.poignee-suppr { position: absolute; top: -12px; right: -9px; width: 18px; height: 18px; text-align: center; background: #fff; color: var(--warn); border: 1px solid var(--warn); border-radius: 50%; font: 13px/16px Georgia, serif; cursor: pointer; }
+.volet-outils { display: flex; gap: 8px; }
+.bascule-zone { border: 1px solid var(--creme); background: transparent; color: var(--creme); border-radius: 4px; padding: 2px 9px; font-family: Georgia, serif; font-size: 12px; cursor: pointer; }
+.bascule-zone.on { background: var(--creme); color: var(--titre); }
+
+/* Blocs détectés automatiquement au chargement (texte / image) */
+.bloc-auto { position: absolute; border: 1px dashed; border-radius: 2px; cursor: pointer; pointer-events: auto; transition: background .12s; }
+.bloc-auto .bloc-tag { position: absolute; top: -9px; left: -1px; font: 10px/1.4 "Courier New", monospace; padding: 1px 5px; border-radius: 3px; color: #fff; white-space: nowrap; pointer-events: none; opacity: .92; }
+.bloc-auto.texte { border-color: #3f6fa6; background: rgba(63, 111, 166, .07); }
+.bloc-auto.texte .bloc-tag { background: #3f6fa6; }
+.bloc-auto.image { border-color: #2f7d5b; background: rgba(47, 125, 91, .10); }
+.bloc-auto.image .bloc-tag { background: #2f7d5b; }
+.bloc-auto:hover { background: rgba(154, 125, 80, .22); }
+.bloc-auto.utilise { border-style: solid; opacity: .45; }
+.sans-blocs .bloc-auto { display: none; }
+.barre-doc { display: flex; align-items: center; gap: 12px; margin: 16px 0 10px; padding: 8px 12px; background: var(--carte); border: 1px solid var(--or); border-radius: 6px; }
+.epub-attente { color: var(--sous); text-align: center; padding: 46px 22px; }
+.epub-attente b { display: block; color: var(--titre); font-size: 16px; margin-bottom: 8px; }
+
+/* Volet EPUB : conteneur de rendu epub.js, aligné sur la hauteur du PDF. */
+#epub-zone { padding: 0; overflow: hidden; max-height: 78vh; height: 78vh; }
+#epub-rendu { width: 100%; height: 100%; }
+#epub-rendu iframe { border: 0; }
+.mq-vide { margin: 16px 0; padding: 22px; border: 1px dashed var(--or); border-radius: 8px; background: var(--code); color: var(--sous); text-align: center; }
+
+/* Convertisseur : renvoi vers la palette d'actions */
+.renvoi-palette { font-size: 13px; color: var(--sous); margin: 6px 0 14px; }
+.renvoi-palette b { color: var(--titre); }
+.action-choisie { color: var(--sous); font-style: italic; }
+.action-choisie.on { color: var(--titre); font-style: normal; font-weight: bold; }
+
+/* Convertisseur : palette d'actions ancrée à droite (façon MuseScore) */
+.palette-actions {
+  position: fixed;
+  top: 92px;
+  right: 16px;
+  width: 258px;
+  max-height: calc(100vh - 112px);
+  overflow: auto;
+  background: var(--carte);
+  border: 1px solid var(--or);
+  border-radius: 8px;
+  box-shadow: 0 6px 22px rgba(0, 0, 0, .18);
+  z-index: 40;
+}
+.palette-actions.plie { display: none; }
+.palette-tete {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 9px 12px;
+  background: var(--titre); color: var(--creme);
+  font-family: Georgia, serif; font-size: 14px;
+  border-radius: 7px 7px 0 0;
+  position: sticky; top: 0;
+}
+.palette-fermer { background: transparent; border: 0; color: var(--creme); font-size: 18px; line-height: 1; cursor: pointer; padding: 0 2px; }
+.palette-corps { padding: 6px 8px 10px; }
+.palette-cat { border-bottom: 1px solid var(--tan); }
+.palette-cat:last-child { border-bottom: 0; }
+.palette-cat-tete {
+  width: 100%; display: flex; align-items: center; justify-content: space-between;
+  background: transparent; border: 0; cursor: pointer;
+  padding: 9px 4px;
+  font-family: "Courier New", monospace; font-size: 11.5px; letter-spacing: .06em; text-transform: uppercase;
+  color: var(--sous);
+}
+.palette-cat-tete .fleche { transition: transform .15s; }
+.palette-cat.ouvert .palette-cat-tete .fleche { transform: rotate(90deg); }
+.palette-cat-corps { display: none; flex-wrap: wrap; gap: 7px; padding: 2px 2px 12px; }
+.palette-cat.ouvert .palette-cat-corps { display: flex; }
+
+/* Palette : zone de référence, en-têtes de section, bloc consigne */
+.palette-actions .zone-ref {
+  font-family: "Courier New", monospace; font-size: 11px; color: var(--sous);
+  padding: 9px 12px; border-bottom: 1px solid var(--tan); word-break: break-word;
+}
+.palette-section-tete, .palette-actions .champ-label {
+  display: block;
+  font-family: "Courier New", monospace; font-size: 11px; letter-spacing: .06em; text-transform: uppercase;
+  color: var(--sous); padding: 8px 12px 0;
+}
+.palette-actions .action-choisie {
+  display: block; padding: 4px 12px 10px; font-size: 12px; color: var(--sous); font-style: italic;
+  border-bottom: 1px solid var(--tan);
+}
+.palette-actions .action-choisie.on { color: var(--titre); font-style: normal; font-weight: bold; }
+.palette-exigence { padding: 4px 12px 14px; }
+.palette-actions textarea {
+  width: 100%; height: 104px; resize: vertical; overflow: auto;
+  border: 1px solid var(--tan); border-radius: 6px; background: var(--code);
+  padding: 8px 10px; margin: 6px 0 10px;
+  font-family: Georgia, serif; font-size: 13px; color: var(--corps); line-height: 1.4;
+  box-sizing: border-box;
+}
+.palette-actions .ia-box {
+  background: var(--code); border: 1px solid var(--tan); border-radius: 6px;
+  padding: 8px 10px; margin-bottom: 10px; font-size: 12.5px; color: var(--corps);
+}
+.palette-actions .ia-box .etiquette {
+  display: block; font-family: "Courier New", monospace; font-size: 10.5px;
+  letter-spacing: .06em; text-transform: uppercase; color: var(--sous); margin-bottom: 4px;
+}
+.palette-actions .ia-options { margin-bottom: 10px; }
+.palette-actions .option-ligne {
+  display: flex; align-items: flex-start; gap: 7px; cursor: pointer;
+  font-size: 12.5px; color: var(--corps); line-height: 1.35; padding: 2px 0 6px;
+}
+.palette-actions .option-ligne input { margin-top: 2px; }
+.palette-actions #cle-ia {
+  width: 100%; box-sizing: border-box;
+  border: 1px solid var(--tan); border-radius: 6px; background: var(--code);
+  padding: 7px 9px; margin: 4px 0 4px;
+  font-family: "Courier New", monospace; font-size: 12px; color: var(--corps);
+}
+.palette-actions .option-note {
+  margin: 0 0 2px; font-size: 11px; color: var(--sous); font-style: italic; line-height: 1.35;
+}
+.palette-boutons { display: flex; flex-direction: column; gap: 8px; align-items: stretch; }
+.palette-boutons .bouton-clair, .palette-boutons .bouton-plein { width: 100%; text-align: center; }
+.palette-boutons .etat { align-self: flex-start; }
+/* Boutons Avec IA reduits (taille des puces) ; Revenir au brouillon inchange. */
+.zone-avecia .palette-boutons .bouton-clair { padding: 4px 10px; font-size: 12px; font-weight: normal; border-radius: 5px; }
+
+/* =========================================================
+   Palette en trois zones : Sans IA / Avec IA / Decision
+   ========================================================= */
+.palette-zone { position: relative; }
+.palette-zone:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 4px;
+  background:
+    linear-gradient(var(--tan), var(--tan)) top / 100% 2px no-repeat,
+    linear-gradient(var(--tan), var(--tan)) bottom / 100% 1px no-repeat;
+}
+.zone-tete {
+  font-family: Georgia, serif; font-size: 13px; font-weight: bold;
+  letter-spacing: .08em; text-transform: uppercase;
+  color: var(--titre); background: var(--tan);
+  border-bottom: 1px solid var(--or);
+  padding: 8px 12px; margin-bottom: 6px;
+}
+.zone-corps { padding: 4px 12px 14px; }
+.zone-corps .champ-label { padding: 8px 0 0; }
+
+/* Cible : champ numero de page (- N +) avec case "toutes les pages" */
+.pas-page { display: inline-flex; align-items: stretch; height: 28px; }
+.pas-page button {
+  width: 28px; border: 1px solid var(--tan); background: var(--code);
+  color: var(--titre); font-size: 16px; line-height: 1; cursor: pointer;
+  font-family: Georgia, serif;
+}
+.pas-page button:first-child { border-radius: 6px 0 0 6px; }
+.pas-page button:last-child { border-radius: 0 6px 6px 0; }
+.pas-page button:hover { background: var(--carte); }
+.cible-num {
+  width: 46px; text-align: center; font-size: 13px; color: var(--corps);
+  background: var(--code); border: 1px solid var(--tan); border-left: 0; border-right: 0;
+  font-family: Georgia, serif; -moz-appearance: textfield;
+}
+.cible-num::-webkit-outer-spin-button,
+.cible-num::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+.cible-num:disabled { opacity: .45; }
+.cible-toutes {
+  display: flex; align-items: center; gap: 7px;
+  padding: 8px 0 2px; font-size: 12.5px; color: var(--corps); cursor: pointer;
+}
+.cible-toutes input { accent-color: var(--titre); }
+
+/* Ligne reglage : intitule a gauche, controle a droite */
+.reglage-ligne {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 10px; padding: 10px 0 2px;
+}
+.reglage-nom { font-size: 12.5px; color: var(--corps); }
+
+/* Pas de police : - 100% + */
+.pas-police { display: inline-flex; align-items: stretch; height: 28px; }
+.pas-police button {
+  width: 28px; border: 1px solid var(--tan); background: var(--code);
+  color: var(--titre); font-size: 16px; line-height: 1; cursor: pointer;
+  font-family: Georgia, serif;
+}
+.pas-police button:first-child { border-radius: 6px 0 0 6px; }
+.pas-police button:last-child { border-radius: 0 6px 6px 0; }
+.pas-police button:hover { background: var(--carte); }
+.pas-police #police-val,
+.pas-police #image-val {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-width: 46px; font-size: 12px; color: var(--corps);
+  border-top: 1px solid var(--tan); border-bottom: 1px solid var(--tan);
+}
+
+/* Interrupteur Texte | Image */
+.interrupteur { display: inline-flex; border: 1px solid #b58f57; border-radius: 6px; overflow: hidden; }
+.interrupteur button {
+  border: 0; cursor: pointer;
+  padding: 6px 13px; font-size: 12.5px; font-family: Georgia, serif; color: #3d2810;
+  /* Bois surelevé, comme les pastilles du dictionnaire */
+  background:
+    repeating-linear-gradient(90deg,
+      rgba(150,105,55,0)   0px, rgba(150,105,55,.16) 2px, rgba(150,105,55,0)  5px,
+      rgba(110,70,30,.10)  9px, rgba(150,105,55,0)  13px),
+    linear-gradient(180deg, #ecd2a6 0%, #ddba82 58%, #cda768 100%);
+  box-shadow: inset 0 1px 0 rgba(255,248,228,.55), inset 0 -1px 2px rgba(120,80,38,.35);
+  text-shadow: 0 1px 0 rgba(255,248,228,.5);
+}
+.interrupteur button + button { border-left: 1px solid #b58f57; }
+/* Bouton actif : bois acajou foncé, enfoncé, verrouillé (l'interrupteur garde un seul actif). */
+.interrupteur button.on {
+  color: #f3e2d0;
+  background:
+    repeating-linear-gradient(90deg,
+      rgba(40,16,8,0)   0px, rgba(40,16,8,.28) 2px, rgba(40,16,8,0)   5px,
+      rgba(20,8,4,.18)  9px, rgba(40,16,8,0)   13px),
+    linear-gradient(180deg, #5a2a18 0%, #6b3420 52%, #7a3e26 100%);
+  box-shadow: inset 0 2px 5px rgba(20,8,4,.6), inset 0 -1px 0 rgba(255,232,205,.18);
+  text-shadow: 0 1px 1px rgba(0,0,0,.4);
+}
+
+/* Onglet pour rouvrir la palette quand elle est masquée */
+.palette-onglet {
+  position: fixed; top: 92px; right: 0;
+  background: var(--titre); color: var(--creme);
+  border: 0; border-radius: 6px 0 0 6px;
+  padding: 8px 6px; cursor: pointer;
+  font-family: Georgia, serif; font-size: 12px;
+  writing-mode: vertical-rl; text-orientation: mixed;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, .2);
+  z-index: 39; display: none;
+}
+.palette-onglet.visible { display: block; }
+
+.pagineur {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+}
+
+.pagineur button {
+  border: 1px solid var(--or);
+  background: var(--code);
+  color: var(--titre);
+  border-radius: 4px;
+  padding: 3px 9px;
+  cursor: pointer;
+  font-family: Georgia, serif;
+}
+
+.panneau-correction {
+  border: 1px solid var(--or);
+  border-radius: 6px;
+  background: var(--carte);
+  padding: 18px 22px;
+  margin: 18px 0;
+}
+
+.panneau-correction h3 { color: var(--titre); font-size: 18px; margin-bottom: 4px; }
+.panneau-correction .zone-ref {
+  font-family: "Courier New", monospace;
+  font-size: 12px;
+  color: var(--sous);
+  margin-bottom: 12px;
+}
+
+.panneau-correction .champ-label {
+  font-family: "Courier New", monospace;
+  font-size: 11.5px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--sous);
+}
+
+.mots-cles { display: flex; flex-wrap: wrap; gap: 8px; margin: 8px 0 14px; }
+
+.chip {
+  border: 1px solid var(--tan);
+  background: var(--code);
+  border-radius: 16px;
+  padding: 5px 13px;
+  font-size: 13px;
+  font-family: Georgia, serif;
+  color: var(--titre);
+  cursor: pointer;
+  transition: .15s;
+  user-select: none;
+}
+
+.chip:hover { border-color: var(--or); }
+.chip.on { background: var(--titre); color: var(--creme); border-color: var(--titre); }
+
+.panneau-correction textarea {
+  width: 100%;
+  min-height: 70px;
+  border: 1px solid var(--tan);
+  border-radius: 6px;
+  background: var(--code);
+  padding: 10px 12px;
+  font-family: Georgia, serif;
+  font-size: 14px;
+  color: var(--corps);
+  resize: vertical;
+}
+
+.ia-box {
+  border-left: 4px solid var(--run);
+  background: var(--code);
+  border-radius: 0 6px 6px 0;
+  padding: 12px 14px;
+  margin-top: 12px;
+  font-size: 14px;
+  color: var(--sous);
+}
+
+.ia-box .etiquette {
+  font-family: "Courier New", monospace;
+  font-size: 11px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--run);
+  display: block;
+  margin-bottom: 6px;
+}
+
+.actions-ligne { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; align-items: center; }
+
+.bouton-clair {
+  display: inline-block;
+  position: relative;
+  border: 1px solid #b58f57;
+  border-radius: 6px;
+  padding: 10px 18px;
+  font-family: Georgia, serif;
+  font-weight: bold;
+  font-size: 14px;
+  color: #3d2810;
+  cursor: pointer;
+  text-decoration: none;
+  background:
+    repeating-linear-gradient(90deg,
+      rgba(150,105,55,0)   0px,
+      rgba(150,105,55,.16) 2px,
+      rgba(150,105,55,0)   5px,
+      rgba(110,70,30,.10)  9px,
+      rgba(150,105,55,0)  13px),
+    linear-gradient(180deg, #ecd2a6 0%, #ddba82 58%, #cda768 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255,248,228,.6),
+    inset 0 -2px 3px rgba(120,80,38,.4),
+    0 4px 7px rgba(120,80,38,.32);
+  text-shadow: 0 1px 0 rgba(255,248,228,.55);
+  transition: transform .08s ease, box-shadow .12s ease, background .12s ease, color .12s ease;
+}
+
+.bouton-clair:hover {
+  transform: translateY(-1px);
+  color: #2e1d0a;
+  box-shadow:
+    inset 0 1px 0 rgba(255,250,235,.7),
+    inset 0 -2px 3px rgba(120,80,38,.36),
+    0 6px 11px rgba(120,80,38,.4);
+}
+
+/* Catalogues : fiches */
+.catalogue {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+  margin: 16px 0;
+}
+
+.fiche {
+  border: 1px solid var(--tan);
+  border-radius: 6px;
+  background: var(--carte);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: .18s;
+}
+
+.fiche:hover { border-color: var(--or); transform: translateY(-3px); box-shadow: 0 10px 24px rgba(59, 42, 14, .12); }
+
+.fiche .couv {
+  height: 148px;
+  background: linear-gradient(160deg, var(--sous), var(--titre));
+  color: var(--creme);
+  display: flex;
+  align-items: flex-end;
+  padding: 12px;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.fiche .meta { padding: 12px 14px; font-size: 13px; color: var(--sous); }
+.fiche .meta .t { color: var(--titre); font-weight: bold; display: block; margin-bottom: 4px; }
+.fiche .dewey {
+  font-family: "Courier New", monospace;
+  font-size: 11px;
+  color: var(--or);
+  margin-top: 8px;
+  display: block;
+}
+
+/* Aide : sommaire + contenu */
+.aide-layout {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 26px;
+  margin: 16px 0;
+  align-items: start;
+}
+
+.sommaire {
+  position: sticky;
+  top: 16px;
+  border: 1px solid var(--tan);
+  border-radius: 6px;
+  background: var(--carte);
+  padding: 14px;
+}
+
+.sommaire .etiquette {
+  font-family: "Courier New", monospace;
+  font-size: 11px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--sous);
+  margin-bottom: 8px;
+}
+
+.sommaire a {
+  display: block;
+  padding: 6px 8px;
+  color: var(--sous);
+  text-decoration: none;
+  font-size: 14px;
+  border-radius: 4px;
+}
+
+.sommaire a:hover { background: var(--code); color: var(--titre); }
+
+.aide-contenu h3 { color: var(--titre); font-size: 19px; margin: 22px 0 8px; }
+.aide-contenu h3:first-child { margin-top: 0; }
+.aide-contenu p { margin-bottom: 12px; color: var(--corps); max-width: 68ch; }
+
+/* Formulaires : connexion, inscription, contact */
+.form-bloc {
+  max-width: 440px;
+  border: 1px solid var(--tan);
+  border-radius: 8px;
+  background: var(--carte);
+  padding: 24px 26px;
+  margin: 16px 0;
+}
+
+.form-bloc.large { max-width: 620px; }
+
+.champ { margin-bottom: 16px; }
+
+.champ label {
+  display: block;
+  font-family: "Courier New", monospace;
+  font-size: 11.5px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--sous);
+  margin-bottom: 6px;
+}
+
+.champ input,
+.champ select,
+.champ textarea {
+  width: 100%;
+  border: 1px solid var(--tan);
+  border-radius: 6px;
+  background: var(--code);
+  padding: 10px 12px;
+  font-family: Georgia, serif;
+  font-size: 14px;
+  color: var(--corps);
+}
+
+.champ input:focus,
+.champ textarea:focus,
+.champ select:focus { outline: none; border-color: var(--or); }
+
+.champ textarea { min-height: 110px; resize: vertical; }
+
+.deux-colonnes { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+
+.bouton-plein {
+  display: inline-block;
+  position: relative;
+  border: 1px solid #a8823f;
+  border-radius: 6px;
+  padding: 11px 22px;
+  font-family: Georgia, serif;
+  font-weight: bold;
+  font-size: 15px;
+  color: #34210c;
+  cursor: pointer;
+  text-decoration: none;
+  /* Bois plus soutenu : signale le bouton principal */
+  background:
+    repeating-linear-gradient(90deg,
+      rgba(120,80,38,0)   0px,
+      rgba(120,80,38,.18) 2px,
+      rgba(120,80,38,0)   5px,
+      rgba(95,60,26,.12)  9px,
+      rgba(120,80,38,0)  13px),
+    linear-gradient(180deg, #e2c088 0%, #d0a866 58%, #bd934f 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255,246,222,.55),
+    inset 0 -2px 3px rgba(95,60,26,.45),
+    0 4px 7px rgba(95,60,26,.36);
+  text-shadow: 0 1px 0 rgba(255,246,222,.5);
+  transition: transform .08s ease, box-shadow .12s ease, background .12s ease, color .12s ease;
+}
+
+.bouton-plein:hover {
+  transform: translateY(-1px);
+  color: #241606;
+  box-shadow:
+    inset 0 1px 0 rgba(255,248,228,.65),
+    inset 0 -2px 3px rgba(95,60,26,.4),
+    0 6px 11px rgba(95,60,26,.44);
+}
+
+.form-bloc .aide-lien {
+  display: block;
+  margin-top: 14px;
+  font-size: 13px;
+  color: var(--sous);
+}
+
+.form-bloc .aide-lien a { color: var(--or); }
+
+.coordonnees {
+  border-left: 4px solid var(--or);
+  padding: 4px 0 4px 16px;
+  margin: 16px 0;
+  color: var(--sous);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.coordonnees b { color: var(--titre); }
+
+/* Journaux : fil d'activité */
+.fil { margin: 16px 0; border-left: 2px solid var(--tan); padding-left: 20px; }
+
+.fil-item { position: relative; padding: 0 0 20px 6px; }
+
+.fil-item::before {
+  content: "";
+  position: absolute;
+  left: -27px;
+  top: 4px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--carte);
+  border: 2px solid var(--or);
+}
+
+.fil-item .quand {
+  font-family: "Courier New", monospace;
+  font-size: 11.5px;
+  color: var(--sous);
+}
+
+.fil-item .quoi { color: var(--titre); font-weight: bold; margin: 2px 0; }
+.fil-item .detail { color: var(--corps); font-size: 13.5px; }
+
+@media (max-width: 800px) {
+  .split { grid-template-columns: 1fr; }
+  .aide-layout { grid-template-columns: 1fr; }
+  .sommaire { position: static; }
+  .deux-colonnes { grid-template-columns: 1fr; }
+}

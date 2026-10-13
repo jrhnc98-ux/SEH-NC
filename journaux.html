@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SEH-NC · Maquette · Journaux</title>
+  <link rel="stylesheet" href="../css/atelier.css">
+  <link rel="stylesheet" href="maquettes.css">
+</head>
+<body>
+
+  <div class="logo-header">
+    <a href="index.html" style="text-decoration:none">
+      <img src="../seh1.jpg" alt="Logo SEH-NC" onerror="this.style.display='none'">
+      <div class="brand">SEH &middot; Atelier de production
+        <span>SOCIÉTÉ D'ÉTUDES HISTORIQUES &middot; NC</span>
+        <small>FONDS PATRIMONIAL CALÉDONIEN</small>
+      </div>
+    </a>
+  </div>
+
+  <input type="checkbox" id="bascule-menu" class="menu-bascule" hidden>
+  <label for="bascule-menu" class="menu-ouvrir" aria-label="Ouvrir le menu" title="Menu"><span></span><span></span><span></span></label>
+  <label for="bascule-menu" class="menu-fond" aria-hidden="true"></label>
+  <aside class="menu-tiroir">
+    <label for="bascule-menu" class="menu-fermer" aria-label="Fermer le menu" title="Fermer">&times;</label>
+    <nav class="menu-liens">
+      <a href="index.html" class="menu-accueil">&#8962; Sommaire maquettes</a>
+      <a href="fonds.html">Fonds</a>
+      <a href="connexion.html">Connexion</a>
+      <a href="inscription.html">Inscription</a>
+      <a href="convertisseur.html">Convertisseur par document</a>
+      <a href="lots.html">Par lots</a>
+      <a href="catalogues.html">Catalogues</a>
+      <a href="journaux.html" class="actif">Journaux</a>
+      <a href="contact.html" class="petit">Contact</a>
+      <a href="aide.html" class="petit">Aide</a>
+    </nav>
+  </aside>
+
+  <main class="wrap contenu-atelier">
+    <div class="titre-atelier">Journaux</div>
+
+    <p class="mq-intro">Historique des traitements et rapports d'exigences. Trace ce qui a été demandé, appliqué ou rejeté, pour chaque bulletin.</p>
+    <div class="mq-note"><b>Statut :</b> maquette visuelle à valider. Données fictives.</div>
+
+    <div class="mq-barre">
+      <span class="mq-filtre on">Tout</span>
+      <span class="mq-filtre">Exigences</span>
+      <span class="mq-filtre">Conversions</span>
+      <span class="mq-filtre">Connexions</span>
+      <input class="mq-recherche" type="search" placeholder="Filtrer par bulletin ou par membre…">
+    </div>
+
+    <div class="fil">
+      <div class="fil-item">
+        <div class="quand">06/07/2026 · 09:14</div>
+        <div class="quoi">Exigence appliquée · Bulletin 1908 n°3</div>
+        <div class="detail">Action « Corriger » p.12 validée par J. Robert-Hénaff. 3 coquilles corrigées.</div>
+      </div>
+      <div class="fil-item">
+        <div class="quand">06/07/2026 · 08:58</div>
+        <div class="quoi">Exigence soumise · Bulletin 1908 n°3</div>
+        <div class="detail">Action « Effacer » p.15 : retrait du filigrane de numérisation. En attente.</div>
+      </div>
+      <div class="fil-item">
+        <div class="quand">05/07/2026 · 16:32</div>
+        <div class="quoi">EPUB généré · Bulletin 1905 n°2</div>
+        <div class="detail">Conversion terminée. 96 pages, 4 illustrations, 12 notes.</div>
+      </div>
+      <div class="fil-item">
+        <div class="quand">05/07/2026 · 15:07</div>
+        <div class="quoi">Exigence rejetée · Bulletin 1912 n°7</div>
+        <div class="detail">Action « Réorganiser » p.4 : refusée, l'ordre d'origine est conservé.</div>
+      </div>
+      <div class="fil-item">
+        <div class="quand">05/07/2026 · 14:20</div>
+        <div class="quoi">Connexion · J. Robert-Hénaff</div>
+        <div class="detail">Ouverture de session depuis Nouméa.</div>
+      </div>
+    </div>
+
+    <div class="mq-titre">Rapport d'exigences · Bulletin 1908 n°3</div>
+    <table class="mq-table">
+      <thead>
+        <tr><th>Page</th><th>Action</th><th>Auteur</th><th>État</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="ref">p. 8</td><td class="nom">Légender</td><td>J. Robert-Hénaff</td><td><span class="etat ok">appliquée</span></td></tr>
+        <tr><td class="ref">p. 10</td><td class="nom">Réorganiser</td><td>J. Robert-Hénaff</td><td><span class="etat ok">validée</span></td></tr>
+        <tr><td class="ref">p. 12</td><td class="nom">Corriger</td><td>J. Robert-Hénaff</td><td><span class="etat ok">appliquée</span></td></tr>
+        <tr><td class="ref">p. 15</td><td class="nom">Effacer</td><td>J. Robert-Hénaff</td><td><span class="etat warn">soumise</span></td></tr>
+      </tbody>
+    </table>
+  </main>
+
+  <footer class="footer-marron">
+    <div class="wrap">
+      <nav class="nav-bas">
+        <a href="fonds.html">Fonds</a>
+        <a href="catalogues.html">Catalogues</a>
+        <a href="journaux.html">Journaux</a>
+        <a href="aide.html" class="icon" title="Aide" aria-label="Aide">&#9072;</a>
+        <a href="contact.html" class="icon" title="Contact" aria-label="Contact">&#9993;</a>
+      </nav>
+      <div class="copy">
+        Atelier de production <b>SEH-NC</b><span class="sep">&middot;</span>Maquettes<span class="sep">&middot;</span>Composant 1<br>
+        <span style="opacity:0.6; font-size:11px;">&copy; SEH-NC &middot; Document de travail</span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

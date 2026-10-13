@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SEH-NC · Atelier de production</title>
+  <style>
+    :root {
+      --corps: #1A1008;
+      /* texte courant */
+      --titre: #3B2A0E;
+      /* titres */
+      --sous: #6B4C1E;
+      /* sous-titres */
+      --or: #9A7D50;
+      /* or, filets */
+      --tan: #C8BFA8;
+      /* tan */
+      --code: #F6F1E7;
+      /* fond clair */
+      --page: #EBE1CC;
+      /* parchemin */
+      --carte: #F8F3E8;
+      /* fiche */
+      --creme: #F6F1E7;
+      /* texte sur brun */
+      --warn: #9B4722;
+      /* terre brûlée, anomalie */
+      --run: #B0842F;
+      /* ambre, en cours */
+      --idle: #DAD0B8;
+      /* papier en attente */
+      --radius: 6px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0
+    }
+
+    html {
+      scroll-behavior: smooth
+    }
+
+    body {
+      background: var(--page);
+      color: var(--corps);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .wrap {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 26px;
+      width: 100%;
+    }
+
+    /* =========================================================
+               1. LOGO CENTRÉ EN HAUT
+               ========================================================= */
+    .logo-header {
+      text-align: center;
+      padding: 30px 0 20px;
+      border-bottom: 3px double #9A7D50;
+      margin-bottom: 10px;
+    }
+
+    .logo-header img {
+      max-width: 140px;
+      /* Ajuste selon la taille de ton image */
+      height: auto;
+      display: block;
+      margin: 0 auto 12px;
+      /* Centre l'image et laisse un espace en dessous */
+      border-radius: 6px;
+      /* Optionnel : coins arrondis */
+    }
+
+    .logo-header .brand {
+      font-size: 22px;
+      font-weight: bold;
+      color: #3B2A0E;
+      letter-spacing: 0.03em;
+    }
+
+    .logo-header .brand span {
+      display: block;
+      font-weight: normal;
+      font-size: 15px;
+      color: #6B4C1E;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      font-family: "Courier New", monospace;
+      margin-top: 4px;
+    }
+
+    .logo-header .brand small {
+      display: block;
+      font-weight: normal;
+      font-size: 11px;
+      color: #6B4C1E;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-family: "Courier New", monospace;
+      margin-top: 2px;
+      opacity: 0.7;
+    }
+
+    /* =========================================================
+               2. CONTENU PRINCIPAL (flex:1 pour pousser le footer en bas)
+               ========================================================= */
+    main {
+      flex: 1;
+    }
+
+    /* ---------- Hero ---------- */
+    .hero {
+      padding: 32px 0 26px
+    }
+
+    .eyebrow {
+      font-family: "Courier New", monospace;
+      font-size: 12px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--sous);
+      margin-bottom: 18px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 34px;
+      height: 2px;
+      background: var(--or)
+    }
+
+    h1 {
+      font-family: Georgia, serif;
+      font-weight: bold;
+      color: var(--titre);
+      font-size: clamp(32px, 4.8vw, 50px);
+      line-height: 1.08;
+      max-width: 17ch;
+    }
+
+    h1 em {
+      font-style: italic;
+      color: var(--sous)
+    }
+
+    .lede {
+      margin-top: 18px;
+      max-width: 58ch;
+      color: var(--sous);
+      font-size: 16.5px
+    }
+
+    /* ---------- Cartouche état du fonds ---------- */
+    .fonds {
+      margin-top: 36px;
+      background: var(--carte);
+      border: 1px solid var(--or);
+      border-radius: var(--radius);
+      box-shadow: 0 1px 0 var(--tan), 0 10px 30px rgba(59, 42, 14, .08);
+      overflow: hidden;
+    }
+
+    .fonds-head {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-end;
+      gap: 18px;
+      padding: 20px 26px 16px;
+      border-bottom: 3px double var(--or);
+    }
+
+    .fonds-head .big {
+      font-weight: bold;
+      color: var(--titre);
+      font-size: 16px
+    }
+
+    .fonds-head .cote {
+      font-family: "Courier New", monospace;
+      font-size: 12.5px;
+      color: var(--sous);
+      margin-top: 4px;
+    }
+
+    .fonds-head .pct {
+      margin-left: auto;
+      text-align: right
+    }
+
+    .fonds-head .pct b {
+      font-weight: bold;
+      font-size: 38px;
+      color: var(--or);
+      line-height: 1;
+    }
+
+    .fonds-head .pct span {
+      display: block;
+      font-family: "Courier New", monospace;
+      font-size: 11.5px;
+      color: var(--sous);
+      letter-spacing: .04em;
+      margin-top: 5px;
+    }
+
+    .shelf {
+      display: flex;
+      align-items: flex-end;
+      gap: 2.5px;
+      height: 82px;
+      padding: 22px 26px 12px
+    }
+
+    .slot {
+      flex: 1 1 auto;
+      border-radius: 2px 2px 0 0;
+      background: var(--idle);
+      box-shadow: inset -1px 0 0 rgba(59, 42, 14, .10);
+      transform-origin: bottom;
+      transform: scaleY(0);
+      animation: grow .5s cubic-bezier(.2, .8, .25, 1) forwards;
+    }
+
+    @keyframes grow {
+      to {
+        transform: scaleY(1)
+      }
+    }
+
+    .slot.ok {
+      background: var(--or)
+    }
+
+    .slot.warn {
+      background: var(--warn)
+    }
+
+    .slot.run {
+      background: var(--run)
+    }
+
+    .legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 22px;
+      padding: 4px 26px 22px;
+      font-size: 14px;
+      color: var(--sous);
+    }
+
+    .legend div {
+      display: flex;
+      align-items: center;
+      gap: 9px
+    }
+
+    .dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 3px;
+      flex: none;
+      box-shadow: inset -1px 0 0 rgba(59, 42, 14, .12)
+    }
+
+    .dot.ok {
+      background: var(--or)
+    }
+
+    .dot.warn {
+      background: var(--warn)
+    }
+
+    .dot.run {
+      background: var(--run)
+    }
+
+    .dot.idle {
+      background: var(--idle)
+    }
+
+    .legend b {
+      color: var(--titre);
+      font-family: "Courier New", monospace
+    }
+
+    /* ---------- Libellé de section ---------- */
+    .section-label {
+      text-align: center;
+      color: var(--titre);
+      font-weight: bold;
+      font-size: 15px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      margin: 54px 0 22px;
+      position: relative;
+      padding: 12px 0;
+      border-top: 3px double var(--or);
+      border-bottom: 3px double var(--or);
+    }
+
+    /* ---------- Grille d'actions ---------- */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 16px
+    }
+
+    .card {
+      grid-column: span 6;
+      background: var(--carte);
+      border: 1px solid var(--tan);
+      border-radius: var(--radius);
+      padding: 24px;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      position: relative;
+      transition: transform .2s, border-color .2s, box-shadow .2s;
+    }
+
+    .card:hover,
+    .card:focus-visible {
+      transform: translateY(-3px);
+      border-color: var(--or);
+      box-shadow: 0 10px 26px rgba(59, 42, 14, .14);
+      outline: none;
+    }
+
+    .card .ico {
+      width: 46px;
+      height: 46px;
+      border-radius: 6px;
+      display: grid;
+      place-items: center;
+      font-size: 23px;
+      background: var(--code);
+      border: 1px solid var(--tan);
+      margin-bottom: 16px;
+    }
+
+    .card h3 {
+      color: var(--titre);
+      font-weight: bold;
+      font-size: 21px;
+      margin-bottom: 6px
+    }
+
+    .card p {
+      color: var(--sous);
+      font-size: 14.5px;
+      max-width: 44ch
+    }
+
+    .card .go {
+      margin-top: 16px;
+      font-size: 14px;
+      font-weight: bold;
+      color: var(--or);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: gap .2s;
+    }
+
+    .card:hover .go {
+      gap: 13px
+    }
+
+    .badge {
+      position: absolute;
+      top: 24px;
+      right: 24px;
+      background: var(--warn);
+      color: var(--creme);
+      font-size: 12px;
+      font-weight: bold;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-family: "Courier New", monospace;
+    }
+
+    .card.primary {
+      grid-column: span 12;
+      background: linear-gradient(180deg, var(--code), var(--carte));
+      border: 2px solid var(--or);
+      display: flex;
+      align-items: center;
+      gap: 26px;
+      flex-wrap: wrap;
+    }
+
+    .card.primary .ico {
+      width: 58px;
+      height: 58px;
+      font-size: 30px;
+      margin: 0;
+      background: var(--titre);
+      border-color: var(--or)
+    }
+
+    .card.primary .body {
+      flex: 1;
+      min-width: 220px
+    }
+
+    .card.primary h3 {
+      font-size: 25px
+    }
+
+    .card.primary .cta {
+      background: var(--titre);
+      color: var(--creme);
+      border: none;
+      border-radius: 6px;
+      padding: 14px 28px;
+      font-family: Georgia, serif;
+      font-weight: bold;
+      font-size: 16px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      transition: .18s;
+      text-decoration: none;
+      border: 1px solid var(--or);
+    }
+
+    .card.primary .cta:hover,
+    .card.primary .cta:focus-visible {
+      background: var(--sous);
+      transform: translateY(-2px);
+      outline: none;
+    }
+
+    /* ---------- Journal ---------- */
+    .recent {
+      border: 1px solid var(--or);
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: var(--carte);
+      margin-bottom: 30px;
+    }
+
+    .recent .thead {
+      background: var(--titre);
+      color: var(--creme);
+      padding: 11px 22px;
+      font-size: 12px;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      font-family: "Courier New", monospace;
+    }
+
+    .row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 14px 22px;
+      border-bottom: 1px solid var(--tan);
+      font-size: 14.5px;
+    }
+
+    .row:last-child {
+      border-bottom: none
+    }
+
+    .row:nth-child(even) {
+      background: rgba(200, 191, 168, .14)
+    }
+
+    .row .st {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      flex: none
+    }
+
+    .st.ok {
+      background: var(--or)
+    }
+
+    .st.warn {
+      background: var(--warn)
+    }
+
+    .st.run {
+      background: var(--run)
+    }
+
+    .row .name {
+      font-weight: bold;
+      color: var(--titre)
+    }
+
+    .row .ref {
+      font-family: "Courier New", monospace;
+      font-size: 12.5px;
+      color: var(--sous)
+    }
+
+    .row .state {
+      margin-left: auto;
+      font-size: 14px;
+      color: var(--sous)
+    }
+
+    .row .state.warn {
+      color: var(--warn);
+      font-weight: bold
+    }
+
+    .row .time {
+      width: 92px;
+      text-align: right;
+      font-size: 12.5px;
+      color: var(--sous);
+      font-family: "Courier New", monospace
+    }
+
+    /* =========================================================
+    3. FOOTER MARRON EN BAS (avec le menu)
+    ========================================================= */
+    .footer-marron {
+      background: var(--titre);
+      /* #3B2A0E */
+      color: var(--creme);
+      padding: 18px 0 22px;
+      border-top: 3px double var(--or);
+      margin-top: 20px;
+      flex-shrink: 0;
+    }
+
+    .footer-marron .wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .footer-marron .nav-bas {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px 24px;
+    }
+
+    .footer-marron .nav-bas a {
+      color: var(--tan);
+      text-decoration: none;
+      font-size: 14px;
+      padding: 6px 10px;
+      border-radius: 4px;
+      transition: .18s;
+      font-family: Georgia, serif;
+    }
+
+    .footer-marron .nav-bas a:hover,
+    .footer-marron .nav-bas a:focus-visible {
+      color: var(--creme);
+      background: rgba(246, 241, 231, .10);
+      outline: none;
+    }
+
+    .footer-marron .nav-bas a.icon {
+      font-size: 16px;
+    }
+
+    .footer-marron .copy {
+      font-size: 12.5px;
+      color: var(--tan);
+      text-align: center;
+      letter-spacing: .04em;
+      border-top: 1px solid rgba(200, 191, 168, .20);
+      padding-top: 12px;
+      width: 100%;
+    }
+
+    .footer-marron .copy b {
+      color: var(--creme);
+    }
+
+    .footer-marron .copy .sep {
+      color: var(--or);
+      margin: 0 6px;
+    }
+
+    /* =========================================================
+               RESPONSIVE
+               ========================================================= */
+    @media(max-width:720px) {
+      .card {
+        grid-column: span 12
+      }
+
+      .hero {
+        padding: 22px 0 12px
+      }
+
+      .row .ref {
+        display: none
+      }
+
+      .fonds-head .pct {
+        margin-left: 0;
+        text-align: left;
+        width: 100%
+      }
+
+      .logo-header img {
+        max-width: 100px;
+      }
+
+      .logo-header .brand {
+        font-size: 18px;
+      }
+
+      .footer-marron .nav-bas {
+        gap: 4px 14px;
+      }
+
+      .footer-marron .nav-bas a {
+        font-size: 13px;
+        padding: 4px 8px;
+      }
+    }
+
+    @media(prefers-reduced-motion:reduce) {
+      .slot {
+        animation: none;
+        transform: none
+      }
+
+      * {
+        transition: none !important
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ============================================================
+  LOGO CENTRÉ EN HAUT
+  ============================================================ -->
+  <div class="logo-header">
+    <!-- Logo image -->
+    <img src="seh1.jpg" alt="Logo SEHNC">
+
+    <div class="brand">
+      SEH · Atelier de production
+      <span>SOCIÉTÉ D'ÉTUDES HISTORIQUES · NC</span>
+      <small>FONDS PATRIMONIAL CALÉDONIEN</small>
+    </div>
+  </div>
+
+  <!-- ============================================================
+  CONTENU PRINCIPAL
+  ============================================================ -->
+  <main class="wrap">
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="eyebrow">Fonds patrimonial calédonien</div>
+      <h1>Numériser le fonds, un bulletin <em>après l'autre</em>.</h1>
+      <p class="lede">Conversion des ouvrages et bulletins de la SEH-NC en EPUB accessibles, avec classification Dewey
+        et relecture humaine. Reprenez là où l'atelier s'est arrêté.</p>
+
+      <div class="fonds">
+        <div class="fonds-head">
+          <div>
+            <div class="big">État du fonds</div>
+            <div class="cote">SEH-NC · 69 ouvrages, 218 bulletins</div>
+          </div>
+          <div class="pct">
+            <b>49<span style="font-size:22px;display:inline">%</span></b>
+            <span>142 sur 287 validés</span>
+          </div>
+        </div>
+
+        <div class="shelf" id="shelf" aria-hidden="true"></div>
+
+        <div class="legend">
+          <div><i class="dot ok"></i> Validés <b>142</b></div>
+          <div><i class="dot warn"></i> À corriger <b>23</b></div>
+          <div><i class="dot run"></i> En cours <b>6</b></div>
+          <div><i class="dot idle"></i> En attente <b>116</b></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ACTIONS -->
+    <div class="section-label">Que voulez-vous faire</div>
+    <div class="grid">
+
+      <a class="card primary" href="#">
+        <div class="ico">🖨️</div>
+        <div class="body">
+          <h3>Nouvelle production</h3>
+          <p>Chargez des PDF, choisissez un style éditorial, lancez la conversion et validez chaque EPUB. Assistant en 4
+            étapes.</p>
+        </div>
+        <span class="cta">Démarrer l'assistant →</span>
+      </a>
+
+      <a class="card" href="#">
+        <div class="ico">↩️</div>
+        <h3>Reprendre une session</h3>
+        <p>Session du 30 juin, 6 bulletins en cours de conversion. Sauvegarde automatique.</p>
+        <span class="go">Continuer →</span>
+      </a>
+
+      <a class="card" href="#">
+        <span class="badge">23</span>
+        <div class="ico">🔍</div>
+        <h3>Corriger les anomalies</h3>
+        <p>Interface de correction : titres mal reconnus, images manquantes, cotes à vérifier.</p>
+        <span class="go">Ouvrir la correction →</span>
+      </a>
+
+      <a class="card" href="#">
+        <div class="ico">📚</div>
+        <h3>Catalogue EPUB</h3>
+        <p>142 documents validés, classés par cote et indice Dewey. Prêts pour le client.</p>
+        <span class="go">Parcourir →</span>
+      </a>
+
+      <a class="card" href="#">
+        <div class="ico">🗂️</div>
+        <h3>Import du fonds</h3>
+        <p>Ajoutez un lot de sources, contrôlez les doublons et attribuez les cotes.</p>
+        <span class="go">Importer →</span>
+      </a>
+
+    </div>
+
+    <!-- JOURNAL -->
+    <div class="section-label">Dernières conversions</div>
+    <div class="recent">
+      <div class="thead">Journal de production</div>
+      <div class="row">
+        <i class="st ok"></i>
+        <span class="name">Bulletin n° 042</span>
+        <span class="ref">SEH-NC/B-042</span>
+        <span class="state">Validé</span>
+        <span class="time">14:26</span>
+      </div>
+      <div class="row">
+        <i class="st ok"></i>
+        <span class="name">Bulletin n° 041</span>
+        <span class="ref">SEH-NC/B-041</span>
+        <span class="state">Validé</span>
+        <span class="time">14:11</span>
+      </div>
+      <div class="row">
+        <i class="st warn"></i>
+        <span class="name">Bulletin n° 043</span>
+        <span class="ref">SEH-NC/B-043</span>
+        <span class="state warn">Anomalies détectées</span>
+        <span class="time">13:58</span>
+      </div>
+      <div class="row">
+        <i class="st run"></i>
+        <span class="name">Bulletin n° 044</span>
+        <span class="ref">SEH-NC/B-044</span>
+        <span class="state">Conversion en cours</span>
+        <span class="time">à l'instant</span>
+      </div>
+      <div class="row">
+        <i class="st ok"></i>
+        <span class="name">La Foa, notes d'histoire</span>
+        <span class="ref">SEH-NC/O-017</span>
+        <span class="state">Validé</span>
+        <span class="time">Hier</span>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ============================================================
+  FOOTER MARRON EN BAS (avec le menu déplacé)
+  ============================================================ -->
+  <footer class="footer-marron">
+    <div class="wrap">
+      <nav class="nav-bas">
+        <a href="#">Fonds</a>
+        <a href="#">Catalogue</a>
+        <a href="#">Journal</a>
+        <a href="#" class="icon" title="Aide" aria-label="Aide">⍰</a>
+        <a href="#" class="icon" title="Réglages" aria-label="Réglages">⚙</a>
+      </nav>
+      <div class="copy">
+        Atelier de production <b>SEH-NC</b><span class="sep">·</span>Client : <b>M. Jeff Burk</b><span
+          class="sep">·</span>Composant 1, version 3<br>
+        Société d'études historiques de la Nouvelle-Calédonie<span class="sep">·</span>💾 Sauvegarde automatique active
+        <br>
+        <span style="opacity:0.6; font-size:11px;">© SEH-NC · Tous droits réservés</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+  SCRIPT pour le rayonnage (inchangé)
+  ============================================================ -->
+  <script>
+    // Rayonnage : dos de livres proportionnels au fonds (287 documents)
+    const shelf = document.getElementById('shelf');
+    const counts = { ok: 142, warn: 23, run: 6, idle: 116 };
+    const total = 287,
+      SLOTS = 96;
+    const seq = [];
+    for (const [cls, n] of Object.entries(counts)) {
+      const k = Math.round(n / total * SLOTS);
+      for (let i = 0; i < k; i++) seq.push(cls);
+    }
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    seq.forEach((cls, i) => {
+      const s = document.createElement('div');
+      s.className = 'slot ' + (cls === 'idle' ? '' : cls);
+      const h = 55 + Math.round(Math.sin(i * 1.7) * 12 + Math.random() * 22);
+      s.style.height = h + '%';
+      s.style.animationDelay = reduce ? '0s' : (i * 12) + 'ms';
+      shelf.appendChild(s);
+    });
+  </script>
+
+</body>
+
+</html>

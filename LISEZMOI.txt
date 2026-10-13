@@ -1,0 +1,74 @@
+ATELIER DE PRODUCTION SEH-NC : SITE ET CLASSES (Composant 1)
+=============================================================
+Base de développement : spécification et diagramme de classes
+de Jean Robert-Hénaff (cahier des charges SEH-NC, itération 2).
+
+LANCEMENT
+---------
+1. Placer le dossier sur une machine avec PHP 8.1 ou plus.
+2. Depuis ce dossier : php -S localhost:8000
+3. Ouvrir http://localhost:8000 dans le navigateur.
+Remarque : le logo attendu est seh1.jpg à la racine (déjà utilisé
+par la page d'origine). Le déposer à côté de index.php.
+
+ARBORESCENCE
+------------
+index.php            Page d'accueil (maquette dessinée) : logo,
+                     barre horizontale, titre, zone d'entrée.
+fonds.php            Ancienne page d'accueil : inventaire statistique
+                     de l'état des travaux et productions (rayonnage,
+                     compteurs, journal de production).
+connexion.php        Identification du membre.
+inscription.php      Demande de compte membre.
+convertisseur.php    Par document : session de correction complète.
+lots.php             Par lots : conversion de masse.
+catalogues.php       Ouvrages validés, cotes et indices Dewey.
+journaux.php         Suivi des 218 bulletins trimestriels.
+contact.php          Joindre l'équipe.
+aide.php             Guide d'utilisation.
+includes/            entete.php (logo + barre), piedpage.php,
+                     chargeur.php (require_once des 13 classes).
+classes/             Les classes du diagramme, par packages :
+                     Orchestrateur, ServicesExternes, DomaineMetier,
+                     Enumerations.
+css/atelier.css      Charte graphique (parchemin, brun, Georgia).
+
+BARRE DE NAVIGATION (ordre imposé)
+----------------------------------
+Fonds | Connexion | Inscription | Convertisseur par document |
+Par lots | Catalogues | Journaux | Contact | Aide
+
+LIEN BOUTONS vers DIAGRAMME DE CLASSES
+--------------------------------------
+Fonds ................. SGBD (recupererExigences, recupererRapport),
+                        RapportExigences (resumer)
+Connexion ............. Membre (getId, getNom), SGBD,
+                        AtelierProduction.membreActuel (relation "utilise")
+Inscription ........... Membre (id, nom, email, role), SGBD
+Convertisseur par
+document .............. AtelierProduction (chargerDocuments,
+                        afficherComparaison, selectionnerZone,
+                        ouvrirPanneauCorrection, validerToutesCorrections,
+                        genererRapport), DocumentPDF, DocumentEPUB,
+                        PanneauCorrection (afficherMotsCles,
+                        selectionnerMotCle, saisirCommentaire,
+                        demanderAssistanceIA, validerExigence),
+                        ZoneCorrection (+ StatutZone),
+                        ExigenceCorrection (+ StatutExigence),
+                        MotCleAction (dictionnaire d'actions),
+                        AssistantIA (genererSuggestion),
+                        RapportExigences, SGBD (enregistrerExigence)
+Par lots .............. AtelierProduction en boucle, DocumentPDF,
+                        DocumentEPUB, SGBD
+Catalogues ............ DocumentEPUB (getContenu), SGBD
+Journaux .............. DocumentPDF, DocumentEPUB, RapportExigences,
+                        SGBD (recupererExigences, recupererRapport)
+Contact, Aide ......... pages statiques, aucune classe métier
+
+TRADUCTION DIAGRAMME vers CODE (méthode du tuteur)
+--------------------------------------------------
+Nom du rectangle = classe ; attributs = propriétés privées ;
+méthodes = fonctions ; relation de multiplicité 1 = attribut simple ;
+relation de multiplicité * = tableau. Chaque relation du PlantUML
+est commentée dans la classe qui la porte. Les corps de méthodes
+sont volontairement vides : c'est le squelette à implémenter.

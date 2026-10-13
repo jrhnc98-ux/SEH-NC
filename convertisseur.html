@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SEH-NC · Maquette · Convertisseur par document</title>
+  <link rel="stylesheet" href="../css/atelier.css">
+  <link rel="stylesheet" href="maquettes.css">
+</head>
+<body>
+
+  <div class="logo-header">
+    <a href="index.html" style="text-decoration:none">
+      <img src="../seh1.jpg" alt="Logo SEH-NC" onerror="this.style.display='none'">
+      <div class="brand">SEH &middot; Atelier de production
+        <span>SOCIÉTÉ D'ÉTUDES HISTORIQUES &middot; NC</span>
+        <small>FONDS PATRIMONIAL CALÉDONIEN</small>
+      </div>
+    </a>
+  </div>
+
+  <input type="checkbox" id="bascule-menu" class="menu-bascule" hidden>
+  <label for="bascule-menu" class="menu-ouvrir" aria-label="Ouvrir le menu" title="Menu"><span></span><span></span><span></span></label>
+  <label for="bascule-menu" class="menu-fond" aria-hidden="true"></label>
+  <aside class="menu-tiroir">
+    <label for="bascule-menu" class="menu-fermer" aria-label="Fermer le menu" title="Fermer">&times;</label>
+    <nav class="menu-liens">
+      <a href="index.html" class="menu-accueil">&#8962; Sommaire maquettes</a>
+      <a href="fonds.html">Fonds</a>
+      <a href="connexion.html">Connexion</a>
+      <a href="inscription.html">Inscription</a>
+      <a href="convertisseur.html" class="actif">Convertisseur par document</a>
+      <a href="lots.html">Par lots</a>
+      <a href="catalogues.html">Catalogues</a>
+      <a href="journaux.html">Journaux</a>
+      <a href="contact.html" class="petit">Contact</a>
+      <a href="aide.html" class="petit">Aide</a>
+    </nav>
+  </aside>
+
+  <main class="wrap contenu-atelier">
+    <div class="titre-atelier">Convertisseur par document</div>
+
+    <p class="mq-intro">Relecture assistée d'un bulletin. Le PDF d'origine et l'aperçu EPUB sont côte à côte. Le membre trace une zone sur le PDF, choisit une action, ajoute une consigne : cela crée une exigence de correction. L'IA propose une correction en une passe, le membre valide.</p>
+    <div class="mq-note"><b>Statut :</b> maquette visuelle à valider. Le tracé de zone à la souris est une démonstration. Le rendu réel s'appuiera sur PDF.js et epub.js.</div>
+
+    <div class="mq-barre">
+      <span class="etat cours">Bulletin SEH n°3, 1908</span>
+      <span class="mq-recherche" style="flex:1"></span>
+      <div class="pagineur">
+        <button type="button">&#8592;</button>
+        <span>Page 12 / 48</span>
+        <button type="button">&#8594;</button>
+      </div>
+    </div>
+
+    <div class="split">
+      <div class="volet">
+        <div class="volet-tete"><span>PDF d'origine</span><span>tracer une zone</span></div>
+        <div class="page-doc" id="pdf">
+          <h4>De la fondation des premiers comptoirs</h4>
+          <p>L'établissement des comptoirs sur la côte ouest de la Grande Terre marqua le commencement d'un négoce régulier avec les navires de passage.</p>
+          <p>Les registres de la période font état de transactions portant sur le santal, dont l'abondance attira bientôt de nombreux armateurs.</p>
+          <p>On relèvera que l'orthographe des toponymes varie sensiblement d'un document à l'autre, ce qui complique le travail d'indexation.</p>
+          <p>Cette page comporte plusieurs coquilles typographiques héritées de la composition d'époque, à corriger avant publication.</p>
+          <span class="num-page">- 12 -</span>
+        </div>
+      </div>
+
+      <div class="volet">
+        <div class="volet-tete"><span>Aperçu EPUB</span><span>rendu cible</span></div>
+        <div class="page-doc epub">
+          <h4>De la fondation des premiers comptoirs</h4>
+          <p>L'établissement des comptoirs sur la côte ouest de la Grande Terre marqua le commencement d'un négoce régulier avec les navires de passage.</p>
+          <p>Les registres de la période font état de transactions portant sur le santal, dont l'abondance attira bientôt de nombreux armateurs.</p>
+          <p>On relèvera que l'orthographe des toponymes varie sensiblement d'un document à l'autre, ce qui complique le travail d'indexation.</p>
+          <span class="num-page">12</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="panneau-correction">
+      <h3>Exigence de correction</h3>
+      <div class="zone-ref">Zone sélectionnée : page 12 &middot; bloc « Cette page comporte plusieurs coquilles… »</div>
+
+      <label style="font-family:'Courier New',monospace;font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--sous)">Action (dictionnaire de mots-clés)</label>
+      <div class="mots-cles">
+        <span class="chip">Effacer</span>
+        <span class="chip">Déplacer</span>
+        <span class="chip">Réorganiser</span>
+        <span class="chip on">Corriger</span>
+        <span class="chip">Ajouter</span>
+        <span class="chip">Fusionner</span>
+        <span class="chip">Séparer</span>
+        <span class="chip">Mettre en forme</span>
+        <span class="chip">Légender</span>
+        <span class="chip">Référencer</span>
+      </div>
+
+      <label style="font-family:'Courier New',monospace;font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--sous)">Consigne du prescripteur</label>
+      <textarea placeholder="Ex. : corriger les coquilles typographiques de ce paragraphe sans modifier l'orthographe d'époque des toponymes.">Corriger les coquilles typographiques de ce paragraphe sans modifier l'orthographe d'époque des toponymes.</textarea>
+
+      <div class="ia-box">
+        <span class="etiquette">Proposition IA · une passe</span>
+        L'assistant a relevé 3 coquilles et propose une version corrigée du bloc. Les toponymes d'époque sont préservés. Relis puis valide pour appliquer.
+      </div>
+
+      <div class="actions-ligne">
+        <button class="bouton-plein" type="button">Valider l'exigence</button>
+        <button class="bouton-clair" type="button">Voir la proposition</button>
+        <span class="etat attente">brouillon</span>
+      </div>
+    </div>
+
+    <div class="mq-titre">Exigences de la session</div>
+    <table class="mq-table">
+      <thead>
+        <tr><th>Page</th><th>Action</th><th>Consigne</th><th>État</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="ref">p. 8</td><td class="nom">Légender</td><td>Ajouter la légende de la gravure du port</td><td><span class="etat ok">appliquée</span></td></tr>
+        <tr><td class="ref">p. 10</td><td class="nom">Réorganiser</td><td>Remonter le sous-titre avant le paragraphe</td><td><span class="etat ok">validée</span></td></tr>
+        <tr><td class="ref">p. 12</td><td class="nom">Corriger</td><td>Coquilles typographiques du dernier bloc</td><td><span class="etat attente">brouillon</span></td></tr>
+        <tr><td class="ref">p. 15</td><td class="nom">Effacer</td><td>Retirer le filigrane de numérisation</td><td><span class="etat warn">soumise</span></td></tr>
+      </tbody>
+    </table>
+  </main>
+
+  <footer class="footer-marron">
+    <div class="wrap">
+      <nav class="nav-bas">
+        <a href="fonds.html">Fonds</a>
+        <a href="catalogues.html">Catalogues</a>
+        <a href="journaux.html">Journaux</a>
+        <a href="aide.html" class="icon" title="Aide" aria-label="Aide">&#9072;</a>
+        <a href="contact.html" class="icon" title="Contact" aria-label="Contact">&#9993;</a>
+      </nav>
+      <div class="copy">
+        Atelier de production <b>SEH-NC</b><span class="sep">&middot;</span>Maquettes<span class="sep">&middot;</span>Composant 1<br>
+        <span style="opacity:0.6; font-size:11px;">&copy; SEH-NC &middot; Document de travail</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  // Démonstration : tracé d'un rectangle de sélection sur le PDF.
+  (function () {
+    var zone = document.getElementById('pdf');
+    if (!zone) return;
+    var cadre = null, x0 = 0, y0 = 0, actif = false;
+    zone.addEventListener('mousedown', function (e) {
+      var r = zone.getBoundingClientRect();
+      x0 = e.clientX - r.left; y0 = e.clientY - r.top;
+      actif = true;
+      if (cadre) cadre.remove();
+      cadre = document.createElement('div');
+      cadre.className = 'selection';
+      cadre.style.left = x0 + 'px'; cadre.style.top = y0 + 'px';
+      zone.appendChild(cadre);
+      e.preventDefault();
+    });
+    zone.addEventListener('mousemove', function (e) {
+      if (!actif || !cadre) return;
+      var r = zone.getBoundingClientRect();
+      var x = e.clientX - r.left, y = e.clientY - r.top;
+      cadre.style.left = Math.min(x, x0) + 'px';
+      cadre.style.top = Math.min(y, y0) + 'px';
+      cadre.style.width = Math.abs(x - x0) + 'px';
+      cadre.style.height = Math.abs(y - y0) + 'px';
+    });
+    window.addEventListener('mouseup', function () { actif = false; });
+    // Sélection de mots-clés (un seul actif pour la démo)
+    document.querySelectorAll('.chip').forEach(function (c) {
+      c.addEventListener('click', function () { c.classList.toggle('on'); });
+    });
+  })();
+  </script>
+
+</body>
+</html>

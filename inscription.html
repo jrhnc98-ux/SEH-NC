@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SEH-NC · Maquette · Inscription</title>
+  <link rel="stylesheet" href="../css/atelier.css">
+  <link rel="stylesheet" href="maquettes.css">
+</head>
+<body>
+
+  <div class="logo-header">
+    <a href="index.html" style="text-decoration:none">
+      <img src="../seh1.jpg" alt="Logo SEH-NC" onerror="this.style.display='none'">
+      <div class="brand">SEH &middot; Atelier de production
+        <span>SOCIÉTÉ D'ÉTUDES HISTORIQUES &middot; NC</span>
+        <small>FONDS PATRIMONIAL CALÉDONIEN</small>
+      </div>
+    </a>
+  </div>
+
+  <input type="checkbox" id="bascule-menu" class="menu-bascule" hidden>
+  <label for="bascule-menu" class="menu-ouvrir" aria-label="Ouvrir le menu" title="Menu"><span></span><span></span><span></span></label>
+  <label for="bascule-menu" class="menu-fond" aria-hidden="true"></label>
+  <aside class="menu-tiroir">
+    <label for="bascule-menu" class="menu-fermer" aria-label="Fermer le menu" title="Fermer">&times;</label>
+    <nav class="menu-liens">
+      <a href="index.html" class="menu-accueil">&#8962; Sommaire maquettes</a>
+      <a href="fonds.html">Fonds</a>
+      <a href="connexion.html">Connexion</a>
+      <a href="inscription.html" class="actif">Inscription</a>
+      <a href="convertisseur.html">Convertisseur par document</a>
+      <a href="lots.html">Par lots</a>
+      <a href="catalogues.html">Catalogues</a>
+      <a href="journaux.html">Journaux</a>
+      <a href="contact.html" class="petit">Contact</a>
+      <a href="aide.html" class="petit">Aide</a>
+    </nav>
+  </aside>
+
+  <main class="wrap contenu-atelier">
+    <div class="titre-atelier">Inscription</div>
+
+    <p class="mq-intro">Création d'un compte membre SEH-NC. Le membre devient prescripteur : il désigne les corrections, l'atelier les applique.</p>
+    <div class="mq-note"><b>Statut :</b> maquette visuelle à valider. Aucune donnée réelle.</div>
+
+    <form class="mq-form large" onsubmit="return false">
+      <div class="mq-deux">
+        <div class="mq-champ">
+          <label for="prenom">Prénom</label>
+          <input id="prenom" type="text" placeholder="Jean">
+        </div>
+        <div class="mq-champ">
+          <label for="nom">Nom</label>
+          <input id="nom" type="text" placeholder="Robert-Hénaff">
+        </div>
+      </div>
+      <div class="mq-champ">
+        <label for="courriel">Courriel</label>
+        <input id="courriel" type="email" placeholder="prenom.nom@seh-nc.fr">
+      </div>
+      <div class="mq-champ">
+        <label for="role">Rôle au sein de la SEH-NC</label>
+        <select id="role">
+          <option>Membre relecteur</option>
+          <option>Bibliothécaire</option>
+          <option>Administrateur</option>
+        </select>
+      </div>
+      <div class="mq-deux">
+        <div class="mq-champ">
+          <label for="mdp1">Mot de passe</label>
+          <input id="mdp1" type="password" placeholder="••••••••">
+        </div>
+        <div class="mq-champ">
+          <label for="mdp2">Confirmation</label>
+          <input id="mdp2" type="password" placeholder="••••••••">
+        </div>
+      </div>
+      <button class="bouton-plein" type="submit">Créer mon compte</button>
+      <span class="aide-lien">Déjà membre ? <a href="connexion.html">Se connecter</a></span>
+    </form>
+  </main>
+
+  <footer class="footer-marron">
+    <div class="wrap">
+      <nav class="nav-bas">
+        <a href="fonds.html">Fonds</a>
+        <a href="catalogues.html">Catalogues</a>
+        <a href="journaux.html">Journaux</a>
+        <a href="aide.html" class="icon" title="Aide" aria-label="Aide">&#9072;</a>
+        <a href="contact.html" class="icon" title="Contact" aria-label="Contact">&#9993;</a>
+      </nav>
+      <div class="copy">
+        Atelier de production <b>SEH-NC</b><span class="sep">&middot;</span>Maquettes<span class="sep">&middot;</span>Composant 1<br>
+        <span style="opacity:0.6; font-size:11px;">&copy; SEH-NC &middot; Document de travail</span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
